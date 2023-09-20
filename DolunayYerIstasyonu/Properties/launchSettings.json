@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DolunayYerIstasyonu": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
