@@ -4,8 +4,6 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Timers;
-using System.Threading;
 namespace DolunayYerIstasyonu
 {
     public partial class Form1 : Form
