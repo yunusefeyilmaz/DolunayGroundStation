@@ -4,19 +4,28 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+
 namespace DolunayYerIstasyonu
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public TcpListener listener;
-        double roll = 150;
-        double tilt = 0;
-        double pitch = 0;
+        private TcpListener listener;
+        private double roll = 0;
+        private double tilt = 0;
+        private double pitch = 0;
         private Thread trd;
-        public Form1()
+        private SettingsForm popupForm;
+        private Dictionary<string, string> configValues;
+        private SshClient client;
+        public Main()
         {
             InitializeComponent();
-            pbCompass.Image = Compass.DrawCompass(0, pitch, 80, tilt, 80, roll, 180, pbCompass.Size);
+            //Settings Formunu ayarlama ve ayarlarý okuma.
+            popupForm = new SettingsForm(this);
+            popupForm.CheckConfFile();
+            configValues = popupForm.ReadFromFileSetting();
+            client = new SshClient(configValues["Ip"], configValues["Username"], configValues["Password"]);
+            pbCompass.Image = Compass.DrawCompass(0, pitch, 180, tilt, 80, roll, 180, pbCompass.Size);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,7 +35,7 @@ namespace DolunayYerIstasyonu
             this.Controls.Add(CameraImg);
             this.Controls.Add(CameraDown);
         }
-        private void ImageTimerElapsed()
+        private void DataTransferThread()
         {
             try
             {
@@ -34,7 +43,7 @@ namespace DolunayYerIstasyonu
                 using TcpClient client = listener.AcceptTcpClient();
                 using NetworkStream stream = client.GetStream();
                 {
-                    while (true)
+                    while (conCheckBtn)
                     {
                         byte[] buffer = new byte[300 * 420 * 3 * 2 + 2048];
                         int bytesRead = stream.Read(buffer, 0, buffer.Length);
@@ -45,11 +54,11 @@ namespace DolunayYerIstasyonu
                         if (data == null) { conCheck = false; continue; }
                         conCheck = true;
                         // Pixhawk verilerini json formatýndan okuma ve ekrana gösterme.
-                        Dictionary<string, object> pixhawkdata = JsonConvert.DeserializeObject<Dictionary<string, object>>(data["data"].ToString());
+                        Dictionary<string, object> pixhawkdata = JsonConvert.DeserializeObject<Dictionary<string, object>>(data[configValues["PixhawkName"]].ToString());
                         setDatatoLbl(pixhawkdata);
                         // Kamera görüntülerinin json formatýndan okunmasý.
-                        string frame1Base64 = data["kamera1"].ToString();
-                        string frame2Base64 = data["kamera2"].ToString();
+                        string frame1Base64 = data[configValues["FrontCamName"]].ToString();
+                        string frame2Base64 = data[configValues["DownCamName"]].ToString();
                         // Base64 ile kodlanmýþ görüntüyü çözme.
                         byte[] frame1Bytes = Convert.FromBase64String(frame1Base64);
                         byte[] frame2Bytes = Convert.FromBase64String(frame2Base64);
@@ -61,20 +70,20 @@ namespace DolunayYerIstasyonu
                         if (frame2Bytes != null) CameraDown.Image = ByteArrayToImage(frame2Bytes);
                         // Ekrandaki yazýlarýn güncellenmesi.
                         RefreshConnectionLabel();
-                        // Baðlantý kapatýldýysa cliente kapatma.
-                        if (!conCheckBtn) client.Close();
                         // Gelen verilerin alýndýðýný karþý tarafa iletme.
                         string responseMessage = "received";
                         byte[] responseBuffer = Encoding.ASCII.GetBytes(responseMessage);
                         stream.Write(responseBuffer, 0, responseBuffer.Length);
-
                         Thread.Sleep(10);
+
                     }
+                    stream.Close();
+                    client.Close();
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Hata oluþtu: " + ex.Message + ex.ToString());
+
             }
         }
         private Image ByteArrayToImage(byte[] byteArray)
@@ -84,6 +93,7 @@ namespace DolunayYerIstasyonu
                 return Image.FromStream(ms);
             }
         }
+
         private void setDatatoLbl(Dictionary<string, object> pixhawkdata)
         {
             /* 
@@ -105,32 +115,38 @@ namespace DolunayYerIstasyonu
             "arm":  
             }
              */
-            Invoke((MethodInvoker)delegate
+            if (this.InvokeRequired)
             {
-
-                double deg = Math.Round(float.Parse(pixhawkdata["yaw"].ToString()), 3);
-                deg = MapWithNegatives(deg);
-                pbCompass.Image = Compass.DrawCompass(deg, pitch, 80, tilt, 80, roll, 80, pbCompass.Size);
-                lblYaw.Text = Math.Round(float.Parse(pixhawkdata["yaw"].ToString()), 3).ToString();
-                lblRoll.Text = Math.Round(float.Parse(pixhawkdata["roll"].ToString()), 3).ToString();
-                lblPitch.Text = Math.Round(float.Parse(pixhawkdata["pitch"].ToString()), 3).ToString();
-                lblPressure.Text = Math.Round(float.Parse(pixhawkdata["basinc"].ToString()), 3).ToString() + " M";
-                if (float.Parse(pixhawkdata["basinc"].ToString()) == 0) presCheck = false;
-                List<Label> servos = new List<Label>() {
-                 lblServo1, lblServo2, lblServo3, lblServo4, lblServo5, lblServo6, lblServo7, lblServo8};
-                int i = 1;
-                foreach (var servo in servos)
+                Invoke((MethodInvoker)delegate
                 {
-                    servo.Text = i.ToString() + " - " + pixhawkdata["servo" + (i++).ToString()].ToString();
-                }
-                lblMode.Text = pixhawkdata["mode"].ToString();
-                lblArm.Text = pixhawkdata["arm"].ToString();
-            });
+                    double degYaw = Math.Round(float.Parse(pixhawkdata["yaw"].ToString()), 3);
+                    degYaw = MapWithNegatives(degYaw);
+                    double degRoll = Math.Round(float.Parse(pixhawkdata["roll"].ToString()), 3);
+                    degRoll = MapWithNegatives(degRoll);
+                    double degPitch = Math.Round(float.Parse(pixhawkdata["pitch"].ToString()), 3);
+                    degPitch = MapWithNegatives(degPitch);
+                    pbCompass.Image = Compass.DrawCompass(degYaw, degPitch, 180, tilt, 180, degRoll, 180, pbCompass.Size);
+                    lblYaw.Text = Math.Round(float.Parse(pixhawkdata["yaw"].ToString()), 3).ToString();
+                    lblRoll.Text = Math.Round(float.Parse(pixhawkdata["roll"].ToString()), 3).ToString();
+                    lblPitch.Text = Math.Round(float.Parse(pixhawkdata["pitch"].ToString()), 3).ToString();
+                    lblPressure.Text = Math.Round(float.Parse(pixhawkdata["basinc"].ToString()), 3).ToString() + " M";
+                    if (float.Parse(pixhawkdata["basinc"].ToString()) == 0) presCheck = false;
+                    List<Label> servos = new List<Label>() {
+                 lblServo1, lblServo2, lblServo3, lblServo4, lblServo5, lblServo6, lblServo7, lblServo8};
+                    int i = 1;
+                    foreach (var servo in servos)
+                    {
+                        servo.Text = i.ToString() + " - " + pixhawkdata["servo" + (i++).ToString()].ToString();
+                    }
+                    lblMode.Text = pixhawkdata["mode"].ToString();
+                    lblArm.Text = pixhawkdata["arm"].ToString();
+                });
+            }
         }
         private void StartDataListen()
         {
             listener.Start();
-            trd = new Thread(new ThreadStart(this.ImageTimerElapsed));
+            trd = new Thread(new ThreadStart(this.DataTransferThread));
             trd.IsBackground = true;
             trd.Start();
         }
@@ -150,7 +166,7 @@ namespace DolunayYerIstasyonu
             {
                 // Ethernet üzerinden resim alma iþlemini baþlatýn 
                 StartDataListen();
-                writeInfo("SERVER BASARIYLA BASLATILDI.", true);
+                writeInfo("Server baþarýyla baþlatýldý.");
                 conCheckBtn = true;
                 RefreshConnectionLabel();
             }
@@ -158,7 +174,7 @@ namespace DolunayYerIstasyonu
             {
                 CloseDataListen();
                 conCheckBtn = false;
-                writeInfo("SERVER BASARIYLA KAPATILDI.", false);
+                writeInfo("Server baþarýyla kapatýldý.");
                 RefreshConnectionLabel();
             }
         }
@@ -209,55 +225,55 @@ namespace DolunayYerIstasyonu
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnStop_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("ARAC ACIL DURDURULACAK EMIN MISINIZ?", "ACIL DURDUR", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string IP = "raspberrypi";
-                string username = "dolunay";
-                string password = "123456";
                 try
                 {
-                    using (var client = new SshClient(IP, username, password))
-                    {
-                        client.Connect();
-                        // Önce Python iþlemlerini sonlandýr
-                        var pythonKillCommand = "sudo pkill python && sleep 3 && sudo reboot";
-                        var pythonKillResponse = client.RunCommand(pythonKillCommand);
-                        writeInfo(pythonKillResponse.Result);
-                        client.Disconnect();
-                    }
+                    client.Connect();
+                    // Önce Python iþlemlerini sonlandýr
+                    var pythonKillCommand = "sudo pkill python && sleep 3 && sudo reboot";
+                    var pythonKillResponse = client.RunCommand(pythonKillCommand);
+                    writeInfo(pythonKillResponse.Result);
 
-                    writeInfo("ACIL DURUM KOMUTLARI CALISTIRILDI.", true);
+                    writeInfo("Acil durum baþarýyla çalýþtýrýldý.");
                 }
                 catch
                 {
-                    writeInfo("ACIL DURUM KOMUTLARI ILETILEMEDI.", false);
+                    writeInfo("Acil durum komutlarý çalýþtýrýlamadý.");
+                }
+                finally
+                {
+                    client.Disconnect();
                 }
 
             }
             else if (dialogResult == DialogResult.No)
             {
-                writeInfo("ACIL DURUM IPTAL EDILDI.", false);
+                writeInfo("Acil durum iptal edildi.");
             }
         }
 
-        private void writeInfo(string text, bool T = true)
+        public void writeInfo(string text)
         {
-            Invoke((MethodInvoker)delegate
+            string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            if (InfoTxtBox.InvokeRequired)
             {
-                if (T)
+                InfoTxtBox.Invoke((MethodInvoker)delegate
                 {
-                    lblInfo.Text = text;
-                    lblInfo.ForeColor = Color.LightGreen;
-                }
-                else
-                {
-                    lblInfo.Text = text;
-                    lblInfo.ForeColor = Color.Red;
-                }
-            });
+                    // UI elemanlarýna eriþim burada yapýlýr.
+                    InfoTxtBox.AppendText(Environment.NewLine + time + " : " + text);
+                });
+            }
+            else
+            {
+                // Ana iþ parçacýðýndaysanýz doðrudan eriþim yapabilirsiniz.
+                InfoTxtBox.AppendText(Environment.NewLine + time + " : " + text);
+            }
+
+
         }
 
         static double Map(double value, double fromMin, double fromMax, double toMin, double toMax)
@@ -268,11 +284,54 @@ namespace DolunayYerIstasyonu
         static double MapWithNegatives(double value)
         {
             // 0'dan büyük veya eþitse, 0 ile 3.14 arasýndaki dönüþümü uygula
-            if (value >= 0) { return Map(value, 0.0, 3.14, 0.0, 180.0); }
+            if (value >= 0) { return Map(value, 0.0, 3.142, 0.0, 180.0); }
             // Negatifse, -3.14 ile 0 arasýndaki dönüþümü uygula
-            else { return Map(value, -3.14, 0.0, 181.0, 359.0); }
+            else { return Map(value, -3.142, 0.0, 181.0, 359.0); }
+        }
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+
+            if (popupForm.ShowDialog() == DialogResult.OK)
+            {
+                popupForm.WriteFileFromLabel();
+                configValues = popupForm.ReadFromFileSetting();
+            }
+        }
+        private void btnSSH_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                client.Connect();
+                var cmd = client.RunCommand("cmd");
+                writeInfo(cmd.Result);
+            }
+            catch (Exception ex)
+            {
+                writeInfo(ex.Message);
+            }
+            finally
+            {
+                client.Disconnect();
+            }
+
         }
 
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+            string time = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+            // InfoTxtBox'tan metni alýp satýrlara bölmek için Split metodu kullanýlýr.
+            string[] lines = InfoTxtBox.Text.Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            using (StreamWriter writer = new StreamWriter(time.ToString()+"-LOG.txt"))
+            {
+                foreach (string line in lines)
+                {
+                    // Her satýrý dosyaya yaz.
+                    writer.WriteLine(line);
+                }
+                writeInfo("Log kaydý oluþturuldu.");
+                writer.Close(); 
+            }
+        }
     }
 
 }

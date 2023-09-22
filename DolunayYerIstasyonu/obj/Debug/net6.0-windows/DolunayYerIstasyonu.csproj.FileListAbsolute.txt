@@ -4,7 +4,6 @@ C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\bin\Debug\ne
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\bin\Debug\net6.0-windows\DolunayYerIstasyonu.dll
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\bin\Debug\net6.0-windows\DolunayYerIstasyonu.pdb
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\obj\Debug\net6.0-windows\DolunayYerIstasyonu.csproj.AssemblyReference.cache
-C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\obj\Debug\net6.0-windows\DolunayYerIstasyonu.Form1.resources
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\obj\Debug\net6.0-windows\DolunayYerIstasyonu.csproj.GenerateResource.cache
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\obj\Debug\net6.0-windows\DolunayYerIstasyonu.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\obj\Debug\net6.0-windows\DolunayYerIstasyonu.AssemblyInfoInputs.cache
@@ -22,3 +21,5 @@ C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\bin\Debug\ne
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\bin\Debug\net6.0-windows\SshNet.Security.Cryptography.dll
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\bin\Debug\net6.0-windows\Newtonsoft.Json.Bson.dll
 C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\bin\Debug\net6.0-windows\Newtonsoft.Json.Schema.dll
+C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\obj\Debug\net6.0-windows\DolunayYerIstasyonu.Main.resources
+C:\Users\Yunus\source\repos\DolunayYerIstasyonu\DolunayYerIstasyonu\obj\Debug\net6.0-windows\DolunayYerIstasyonu.SettingsForm.resources

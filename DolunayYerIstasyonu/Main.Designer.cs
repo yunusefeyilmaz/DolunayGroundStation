@@ -1,6 +1,6 @@
 ﻿namespace DolunayYerIstasyonu
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -48,7 +48,7 @@
             label14 = new Label();
             label15 = new Label();
             label16 = new Label();
-            button1 = new Button();
+            btnStop = new Button();
             btnCon = new Button();
             lblFrontCam = new Label();
             lblUnderCam = new Label();
@@ -78,8 +78,12 @@
             label36 = new Label();
             label37 = new Label();
             CameraImg = new PictureBox();
-            lblInfo = new Label();
             panel3 = new Panel();
+            InfoTxtBox = new TextBox();
+            btnLog = new Button();
+            button10 = new Button();
+            btnSSH = new Button();
+            btnSettings = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -285,18 +289,18 @@
             label16.TabIndex = 11;
             label16.Text = "Modu :";
             // 
-            // button1
+            // btnStop
             // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI Variable Display", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(838, 455);
-            button1.Name = "button1";
-            button1.Size = new Size(391, 46);
-            button1.TabIndex = 12;
-            button1.Text = "ACIL DURDUR";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnStop.BackColor = Color.Red;
+            btnStop.FlatStyle = FlatStyle.Popup;
+            btnStop.Font = new Font("Segoe UI Variable Display", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnStop.Location = new Point(838, 455);
+            btnStop.Name = "btnStop";
+            btnStop.Size = new Size(391, 46);
+            btnStop.TabIndex = 12;
+            btnStop.Text = "ACIL DURDUR";
+            btnStop.UseVisualStyleBackColor = false;
+            btnStop.Click += btnStop_Click;
             // 
             // btnCon
             // 
@@ -621,23 +625,14 @@
             // 
             CameraImg.BackColor = Color.Transparent;
             CameraImg.BorderStyle = BorderStyle.FixedSingle;
+            CameraImg.Cursor = Cursors.Cross;
+            CameraImg.Enabled = false;
             CameraImg.Location = new Point(12, 3);
             CameraImg.Name = "CameraImg";
             CameraImg.Size = new Size(820, 446);
             CameraImg.SizeMode = PictureBoxSizeMode.StretchImage;
             CameraImg.TabIndex = 0;
             CameraImg.TabStop = false;
-            // 
-            // lblInfo
-            // 
-            lblInfo.AutoSize = true;
-            lblInfo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblInfo.ForeColor = Color.Lime;
-            lblInfo.Location = new Point(16, 461);
-            lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(153, 30);
-            lblInfo.TabIndex = 47;
-            lblInfo.Text = "HOŞGELDİNİZ";
             // 
             // panel3
             // 
@@ -655,15 +650,78 @@
             panel3.Size = new Size(412, 205);
             panel3.TabIndex = 48;
             // 
-            // Form1
+            // InfoTxtBox
+            // 
+            InfoTxtBox.AcceptsReturn = true;
+            InfoTxtBox.AcceptsTab = true;
+            InfoTxtBox.AllowDrop = true;
+            InfoTxtBox.BorderStyle = BorderStyle.FixedSingle;
+            InfoTxtBox.Font = new Font("Microsoft YaHei", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            InfoTxtBox.HideSelection = false;
+            InfoTxtBox.ImeMode = ImeMode.NoControl;
+            InfoTxtBox.Location = new Point(12, 455);
+            InfoTxtBox.Multiline = true;
+            InfoTxtBox.Name = "InfoTxtBox";
+            InfoTxtBox.ReadOnly = true;
+            InfoTxtBox.ScrollBars = ScrollBars.Vertical;
+            InfoTxtBox.Size = new Size(545, 46);
+            InfoTxtBox.TabIndex = 50;
+            InfoTxtBox.TabStop = false;
+            InfoTxtBox.Text = "Dolunay Yer Istasyonuna Hosgeldiniz";
+            // 
+            // btnLog
+            // 
+            btnLog.Location = new Point(563, 455);
+            btnLog.Name = "btnLog";
+            btnLog.Size = new Size(53, 46);
+            btnLog.TabIndex = 50;
+            btnLog.Text = "LOG";
+            btnLog.UseVisualStyleBackColor = true;
+            btnLog.Click += btnLog_Click;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(622, 455);
+            button10.Name = "button10";
+            button10.Size = new Size(93, 46);
+            button10.TabIndex = 51;
+            button10.Text = "KONTROLLER";
+            button10.UseVisualStyleBackColor = true;
+            // 
+            // btnSSH
+            // 
+            btnSSH.Location = new Point(720, 455);
+            btnSSH.Name = "btnSSH";
+            btnSSH.Size = new Size(53, 46);
+            btnSSH.TabIndex = 52;
+            btnSSH.Text = "SSH";
+            btnSSH.UseVisualStyleBackColor = true;
+            btnSSH.Click += btnSSH_Click;
+            // 
+            // btnSettings
+            // 
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.Location = new Point(779, 455);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new Size(53, 46);
+            btnSettings.TabIndex = 53;
+            btnSettings.Text = "AYAR";
+            btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
+            // 
+            // Main
             // 
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1241, 718);
+            Controls.Add(btnSettings);
+            Controls.Add(btnSSH);
+            Controls.Add(button10);
+            Controls.Add(btnLog);
+            Controls.Add(InfoTxtBox);
             Controls.Add(panel3);
-            Controls.Add(lblInfo);
             Controls.Add(pictureBox4);
             Controls.Add(label37);
             Controls.Add(label36);
@@ -678,7 +736,7 @@
             Controls.Add(lblUnderCam);
             Controls.Add(lblFrontCam);
             Controls.Add(btnCon);
-            Controls.Add(button1);
+            Controls.Add(btnStop);
             Controls.Add(label16);
             Controls.Add(label15);
             Controls.Add(label14);
@@ -690,7 +748,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             ImeMode = ImeMode.On;
-            Name = "Form1";
+            Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
             Text = "DOLUNAY YER ISTASYONU";
@@ -724,7 +782,7 @@
         private Label label14;
         private Label label15;
         private Label label16;
-        private Button button1;
+        private Button btnStop;
         private Button btnCon;
         private Button button3;
         private Button button4;
@@ -770,5 +828,10 @@
         private Label lblInfo;
         private PictureBox pbCompass;
         private Panel panel3;
+        private TextBox InfoTxtBox;
+        private Button btnLog;
+        private Button button10;
+        private Button btnSSH;
+        private Button btnSettings;
     }
 }

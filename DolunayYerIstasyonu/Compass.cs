@@ -24,7 +24,7 @@
             double degreeRadius = outerradius + 37 * sizeMultiplier;
             double dirRadius = innerradius - 30 * sizeMultiplier;
             double TriRadius = outerradius + 20 * sizeMultiplier;
-            double PitchTiltRadius = innerradius * 0.22;
+            double PitchTiltRadius = innerradius *0.55;
             if (s.Width * s.Height > 0)
             {
                 result = new Bitmap(s.Width, s.Height);
@@ -55,7 +55,7 @@
                                                     double sourceheight = s.Height;
 
                                                     int xcenterpoint = (int)(s.Width / 2);
-                                                    int ycenterpoint = (int)((s.Height / 2));// maxRadius; //TODO: 
+                                                    int ycenterpoint = (int)((s.Height / 2));// maxRadius;
 
                                                     Point pA1 = new Point(xcenterpoint, ycenterpoint - (int)(sizeMultiplier * 45));
                                                     Point pB1 = new Point(xcenterpoint - (int)(sizeMultiplier * 7), ycenterpoint - (int)(sizeMultiplier * 45));
@@ -76,13 +76,13 @@
                                                     double[] Sin = new double[360];
 
                                                     //draw centercross
-                                                    g.DrawLine(pen2, new Point(((int)(xcenterpoint - (PitchTiltRadius - sizeMultiplier * 50))), ycenterpoint), new Point(((int)(xcenterpoint + (PitchTiltRadius - sizeMultiplier * 50))), ycenterpoint));
-                                                    g.DrawLine(pen2, new Point(xcenterpoint, (int)(ycenterpoint - (PitchTiltRadius - sizeMultiplier * 50))), new Point(xcenterpoint, ((int)(ycenterpoint + (PitchTiltRadius - sizeMultiplier * 50)))));
-                                                    //draw pitch and
+                                                    g.DrawLine(pen2, new Point(((int)(xcenterpoint - (sizeMultiplier * 20))), ycenterpoint), new Point(((int)(xcenterpoint + (sizeMultiplier * 20))), ycenterpoint));
+                                                    g.DrawLine(pen2, new Point(xcenterpoint, (int)(ycenterpoint - (sizeMultiplier * 20))), new Point(xcenterpoint, ((int)(ycenterpoint + ( sizeMultiplier * 20)))));
+                                                    //draw pitch and roll
                                                     Point PitchTiltCenter = new Point((int)(xcenterpoint + PitchTiltRadius * relativetilt), (int)(ycenterpoint - PitchTiltRadius * relativepitch));
                                                     double angle = (relativeroll * maxroll) * Math.PI / 180; // Radyan cinsinden açı hesaplama
 
-                                                    int lineLength = 25; // Çizgi uzunluğu
+                                                    int lineLength = 25;
                                                     int lineX1 = (int)(PitchTiltCenter.X - lineLength * Math.Cos(angle));
                                                     int lineY1 = (int)(PitchTiltCenter.Y - lineLength * Math.Sin(angle));
                                                     int lineX2 = (int)(PitchTiltCenter.X + lineLength * Math.Cos(angle));
@@ -162,7 +162,7 @@
                                                     String deg = Math.Round(degree, 2).ToString("0.00") + "°";
                                                     SizeF s3 = g.MeasureString(deg, font1);
 
-                                                    g.DrawString(deg, font2, drawBrushOrange, new Point(xcenterpoint - (int)(s3.Width / 2), ycenterpoint - (int)(sizeMultiplier * 40)));
+                                                    g.DrawString(deg, font2, drawBrushOrange, new Point(xcenterpoint - (int)(s3.Width / 2), ycenterpoint + (int)(sizeMultiplier * 60)));
 
                                                 }
                                             }
