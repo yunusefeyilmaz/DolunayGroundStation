@@ -8,7 +8,6 @@ namespace DolunayYerIstasyonu
     internal class Joystick
     {
         Controller controller = new Controller(UserIndex.One);
-
         public Joystick()
         {
             // Constructor - Initializes the joystick.
@@ -17,7 +16,6 @@ namespace DolunayYerIstasyonu
         private JoystickData ListenUserInput()
         {
             // Listen to user input and retrieve joystick data.
-
             State state = controller.GetState();
             JoystickData joystickData = new JoystickData
             {
@@ -43,12 +41,21 @@ namespace DolunayYerIstasyonu
         public string GetJoystickData()
         {
             // Get joystick data in JSON format.
-
-            JoystickData joystickData = ListenUserInput();
-            string jsonData = JsonConvert.SerializeObject(joystickData);
-            return jsonData;
+            try
+            {
+                JoystickData joystickData = ListenUserInput();
+                string jsonData = JsonConvert.SerializeObject(joystickData);
+                return jsonData;
+            }catch (Exception ex)
+            {
+                return "Gamepad not connected";
+            }
+            
         }
-
+        public bool getControllerCon()
+        {
+            return controller.IsConnected;
+        }
         private float NormalizeValue(short value)
         {
             // Normalize a value between -32768 and 32767 to the range -1000 to 1000

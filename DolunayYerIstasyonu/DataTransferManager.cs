@@ -174,7 +174,7 @@ namespace DolunayYerIstasyonu
                         uiManager.RefreshConnectionVerificationLabel();
 
                         // Check if joystick control is enabled.
-                        if (Main.joystickOn)
+                        if (Main.joystickOn&&joystick.getControllerCon())
                         {
                             string joyData = joystick.GetJoystickData();
                             byte[] joyBuffer = Encoding.ASCII.GetBytes(joyData);
