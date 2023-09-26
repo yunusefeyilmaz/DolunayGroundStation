@@ -42,135 +42,225 @@
             lblPixhawkName = new TextBox();
             label6 = new Label();
             button1 = new Button();
+            label7 = new Label();
+            txtBoxLog = new TextBox();
+            btnFileExpoler = new Button();
+            label8 = new Label();
+            lblDistanceName = new TextBox();
+            lblHydrophoneName = new TextBox();
+            label9 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(12, 20);
             label1.Name = "label1";
-            label1.Size = new Size(76, 16);
+            label1.Size = new Size(81, 20);
             label1.TabIndex = 0;
-            label1.Text = "Host İsmi :";
+            label1.Text = "Host Name :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(209, 20);
+            label2.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(229, 18);
             label2.Name = "label2";
-            label2.Size = new Size(63, 16);
+            label2.Size = new Size(59, 20);
             label2.TabIndex = 1;
             label2.Text = "Host IP :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(12, 54);
             label3.Name = "label3";
-            label3.Size = new Size(94, 16);
+            label3.Size = new Size(109, 20);
             label3.TabIndex = 2;
-            label3.Text = "Host Şifresi : ";
+            label3.Text = "Host Password : ";
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.Lime;
             btnSave.DialogResult = DialogResult.OK;
-            btnSave.Location = new Point(168, 232);
+            btnSave.FlatAppearance.BorderSize = 0;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSave.Location = new Point(184, 264);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(104, 33);
             btnSave.TabIndex = 4;
-            btnSave.Text = "KAYDET";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Text = "SAVE";
+            btnSave.UseVisualStyleBackColor = false;
             // 
             // lblHostName
             // 
             lblHostName.Location = new Point(103, 18);
             lblHostName.Name = "lblHostName";
-            lblHostName.Size = new Size(100, 23);
+            lblHostName.Size = new Size(120, 23);
             lblHostName.TabIndex = 5;
             // 
             // lblHostIP
             // 
-            lblHostIP.Location = new Point(275, 18);
+            lblHostIP.Location = new Point(296, 18);
             lblHostIP.Name = "lblHostIP";
-            lblHostIP.Size = new Size(100, 23);
+            lblHostIP.Size = new Size(120, 23);
             lblHostIP.TabIndex = 6;
             // 
             // lblHostPass
             // 
-            lblHostPass.Location = new Point(103, 52);
+            lblHostPass.Location = new Point(127, 52);
             lblHostPass.Name = "lblHostPass";
-            lblHostPass.Size = new Size(100, 23);
+            lblHostPass.Size = new Size(120, 23);
             lblHostPass.TabIndex = 7;
             // 
             // lblFrontName
             // 
-            lblFrontName.Location = new Point(275, 135);
+            lblFrontName.Location = new Point(250, 109);
             lblFrontName.Name = "lblFrontName";
-            lblFrontName.Size = new Size(100, 23);
+            lblFrontName.Size = new Size(166, 23);
             lblFrontName.TabIndex = 9;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(12, 137);
+            label4.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(12, 111);
             label4.Name = "label4";
-            label4.Size = new Size(144, 16);
+            label4.Size = new Size(149, 20);
             label4.TabIndex = 8;
-            label4.Text = "Ön Kamera Json Adı :";
+            label4.Text = "Front Cam Json Name :";
             // 
             // lblDownName
             // 
-            lblDownName.Location = new Point(275, 164);
+            lblDownName.Location = new Point(250, 138);
             lblDownName.Name = "lblDownName";
-            lblDownName.Size = new Size(100, 23);
+            lblDownName.Size = new Size(166, 23);
             lblDownName.TabIndex = 11;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(12, 166);
+            label5.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(12, 140);
             label5.Name = "label5";
-            label5.Size = new Size(146, 16);
+            label5.Size = new Size(153, 20);
             label5.TabIndex = 10;
-            label5.Text = "Alt Kamera Json Adı :";
+            label5.Text = "Under Cam Json Name :";
             // 
             // lblPixhawkName
             // 
-            lblPixhawkName.Location = new Point(275, 193);
+            lblPixhawkName.Location = new Point(250, 167);
             lblPixhawkName.Name = "lblPixhawkName";
-            lblPixhawkName.Size = new Size(100, 23);
+            lblPixhawkName.Size = new Size(166, 23);
             lblPixhawkName.TabIndex = 13;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(12, 195);
+            label6.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(12, 169);
             label6.Name = "label6";
-            label6.Size = new Size(176, 16);
+            label6.Size = new Size(165, 20);
             label6.TabIndex = 12;
-            label6.Text = "Pixhawk Verileri Json Adı :";
+            label6.Text = "Pixhawk Data Json Name :";
             // 
             // button1
             // 
+            button1.BackColor = Color.Red;
             button1.DialogResult = DialogResult.Cancel;
-            button1.Location = new Point(275, 232);
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(308, 264);
             button1.Name = "button1";
             button1.Size = new Size(104, 33);
             button1.TabIndex = 14;
-            button1.Text = "İPTAL";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "CANCEL";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(12, 83);
+            label7.Name = "label7";
+            label7.Size = new Size(99, 20);
+            label7.TabIndex = 15;
+            label7.Text = "Log File Path : ";
+            // 
+            // txtBoxLog
+            // 
+            txtBoxLog.Enabled = false;
+            txtBoxLog.Location = new Point(128, 81);
+            txtBoxLog.Name = "txtBoxLog";
+            txtBoxLog.ShortcutsEnabled = false;
+            txtBoxLog.Size = new Size(251, 23);
+            txtBoxLog.TabIndex = 16;
+            txtBoxLog.WordWrap = false;
+            // 
+            // btnFileExpoler
+            // 
+            btnFileExpoler.BackgroundImage = Properties.Resources.file;
+            btnFileExpoler.BackgroundImageLayout = ImageLayout.Zoom;
+            btnFileExpoler.FlatStyle = FlatStyle.Popup;
+            btnFileExpoler.Location = new Point(381, 81);
+            btnFileExpoler.Name = "btnFileExpoler";
+            btnFileExpoler.Size = new Size(35, 25);
+            btnFileExpoler.TabIndex = 17;
+            btnFileExpoler.UseVisualStyleBackColor = true;
+            btnFileExpoler.Click += btnFileExpoler_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(12, 198);
+            label8.Name = "label8";
+            label8.Size = new Size(169, 20);
+            label8.TabIndex = 18;
+            label8.Text = "Distance Data Json Name :";
+            // 
+            // lblDistanceName
+            // 
+            lblDistanceName.Location = new Point(250, 196);
+            lblDistanceName.Name = "lblDistanceName";
+            lblDistanceName.Size = new Size(166, 23);
+            lblDistanceName.TabIndex = 19;
+            // 
+            // lblHydrophoneName
+            // 
+            lblHydrophoneName.Location = new Point(250, 225);
+            lblHydrophoneName.Name = "lblHydrophoneName";
+            lblHydrophoneName.Size = new Size(166, 23);
+            lblHydrophoneName.TabIndex = 21;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(12, 227);
+            label9.Name = "label9";
+            label9.Size = new Size(192, 20);
+            label9.TabIndex = 20;
+            label9.Text = "Hydrophone Data Json Name :";
             // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(387, 274);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(429, 306);
+            ControlBox = false;
+            Controls.Add(lblHydrophoneName);
+            Controls.Add(label9);
+            Controls.Add(lblDistanceName);
+            Controls.Add(label8);
+            Controls.Add(btnFileExpoler);
+            Controls.Add(txtBoxLog);
+            Controls.Add(label7);
             Controls.Add(button1);
             Controls.Add(lblPixhawkName);
             Controls.Add(label6);
@@ -187,8 +277,10 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "SettingsForm";
+            ShowIcon = false;
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Form1";
+            Text = "Ayarlar";
             Load += SettingsForm_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -210,5 +302,12 @@
         private TextBox lblPixhawkName;
         private Label label6;
         private Button button1;
+        private Label label7;
+        private TextBox txtBoxLog;
+        private Button btnFileExpoler;
+        private Label label8;
+        private TextBox lblDistanceName;
+        private TextBox lblHydrophoneName;
+        private Label label9;
     }
 }

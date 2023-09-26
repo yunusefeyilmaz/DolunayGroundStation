@@ -1,49 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DolunayYerIstasyonu
+﻿namespace DolunayYerIstasyonu
 {
     public partial class SettingsForm : Form
     {
+        public static string HOST = "";
+        public static string USERNAME = "";
+        public static string PASSWORD = "";
+        public static string FRONTCAMNAME = "";
+        public static string UNDERCAMNAME = "";
+        public static string PIXHAWKNAME = "";
+        public static string PATHLOG = "";
+        public static string DISTANCE = "";
+        public static string HYDROPHONE = "";
         private string dosyaAdi = "config.txt";
-        Main main;
-        public SettingsForm(Main main)
+        private Main main;
+        private LoggerConsole console;
+
+        public SettingsForm()
         {
-            this.main = main;   
+
+        }
+        public SettingsForm(Main main, LoggerConsole console)
+        {
+            this.console = console;
             InitializeComponent();
+            this.main = main;
+            CheckConfFile();
+            UpdateSettingsInApp();
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             RefreshSettingLabel();
         }
+
         private void RefreshSettingLabel()
         {
-            Dictionary<string, string> configValues = ReadFromFileSetting();
-            lblHostIP.Text = configValues["Ip"];
-            lblHostName.Text = configValues["Username"];
-            lblHostPass.Text = configValues["Password"];
-            lblFrontName.Text = configValues["FrontCamName"];
-            lblDownName.Text = configValues["DownCamName"];
-            lblPixhawkName.Text = configValues["PixhawkName"];
+            try
+            {
+                Dictionary<string, string> configValues = ReadFromFileSetting();
+                lblHostIP.Text = configValues["Ip"];
+                lblHostName.Text = configValues["Username"];
+                lblHostPass.Text = configValues["Password"];
+                lblFrontName.Text = configValues["FrontCamName"];
+                lblDownName.Text = configValues["DownCamName"];
+                lblPixhawkName.Text = configValues["PixhawkName"];
+                txtBoxLog.Text = configValues["LogPath"];
+                lblDistanceName.Text = configValues["DistanceName"];
+                lblHydrophoneName.Text = configValues["HydrophoneName"];
+            }
+            catch (Exception ex)
+            {
+                WriteFileSetting();
+                console.Log("Error: " + ex.Message);
+                RefreshSettingLabel();
+            }
         }
-        public void CheckConfFile()
+        private void CheckConfFile()
         {
-            // Dosyanın varlığını kontrol edin
+            // Check if the file exists
+            string pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            pathLog = Path.Combine(pathLog, "DolunayYerIstasyonu\\");
             if (!File.Exists(dosyaAdi))
             {
-                File.Create(dosyaAdi).Close();
+                File.Create(pathLog + dosyaAdi).Close();
                 WriteFileSetting();
             }
         }
-        public Dictionary<string, string> ReadFromFileSetting()
+        private Dictionary<string, string> ReadFromFileSetting()
         {
             Dictionary<string, string> configValues = new Dictionary<string, string>();
             string[] lines = File.ReadAllLines(dosyaAdi);
@@ -58,24 +81,78 @@ namespace DolunayYerIstasyonu
             }
             return configValues;
         }
+
         private void WriteFileSetting(string ip = "raspberrypi", string username = "raspberrypi", string password = "123456",
-            string fName = "cam1", string dName = "cam2", string pxName = "pixhawkdata")
+            string fName = "cam1", string dName = "cam2", string pxName = "pixhawkdata", string pathLog = "", string disName = "distance",
+            string hydrName = "hydrophone")
         {
+            if (pathLog == "")
+            {
+                pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                pathLog = Path.Combine(pathLog, "DolunayYerIstasyonu");
+                if (!Directory.Exists(pathLog)) // Create the folder if it doesn't exist
+                {
+                    Directory.CreateDirectory(pathLog);
+                }
+            }
             string[] lines = {
             "Ip="+ip,
             "Username="+username,
             "Password="+password,
             "FrontCamName="+fName,
             "DownCamName="+dName,
-            "PixhawkName="+pxName
-        };
-            // Dosyayı yazma işlemi
+            "PixhawkName="+pxName,
+            "DistanceName="+disName,
+            "HydrophoneName="+hydrName,
+            "LogPath="+pathLog
+            };
+            // Write to the file
             File.WriteAllLines(dosyaAdi, lines);
-            main.writeInfo("Ayarlar güncellendi.");
+            console.Log("Settings updated.");
         }
-        public void WriteFileFromLabel()
+        private void WriteFileFromLabel()
         {
-            WriteFileSetting(lblHostIP.Text, lblHostName.Text, lblHostPass.Text, lblFrontName.Text, lblDownName.Text, lblPixhawkName.Text);
+            WriteFileSetting(lblHostIP.Text, lblHostName.Text, lblHostPass.Text, lblFrontName.Text, lblDownName.Text, lblPixhawkName.Text,
+                txtBoxLog.Text, lblDistanceName.Text, lblHydrophoneName.Text);
         }
+
+        public void RefreshSettingData()
+        {
+            WriteFileFromLabel();
+            UpdateSettingsInApp();
+        }
+        private void UpdateSettingsInApp()
+        {
+            Dictionary<string, string> configValues = ReadFromFileSetting();
+            try
+            {
+                HOST = configValues["Ip"];
+                USERNAME = configValues["Username"];
+                PASSWORD = configValues["Password"];
+                FRONTCAMNAME = configValues["FrontCamName"];
+                UNDERCAMNAME = configValues["DownCamName"];
+                PIXHAWKNAME = configValues["PixhawkName"];
+                PATHLOG = configValues["LogPath"];
+                DISTANCE = configValues["DistanceName"];
+                HYDROPHONE = configValues["HydrophoneName"];
+            }
+            catch (Exception ex)
+            {
+                WriteFileSetting();
+                console.Log("Error: " + ex.Message);
+            }
+
+        }
+
+        private void btnFileExpoler_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            folderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyDocuments;
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtBoxLog.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
     }
 }
