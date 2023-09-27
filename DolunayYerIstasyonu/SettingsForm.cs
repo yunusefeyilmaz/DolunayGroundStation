@@ -21,10 +21,11 @@
         }
         public SettingsForm(Main main, LoggerConsole console)
         {
+
             this.console = console;
             InitializeComponent();
             this.main = main;
-            CheckConfFile();
+            WriteFileSetting();
             UpdateSettingsInApp();
         }
 
@@ -60,16 +61,15 @@
             // Check if the file exists
             string pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             pathLog = Path.Combine(pathLog, "DolunayYerIstasyonu\\");
-            if (!File.Exists(dosyaAdi))
+            if (!File.Exists(pathLog+dosyaAdi))
             {
-                File.Create(pathLog + dosyaAdi).Close();
-                WriteFileSetting();
+                File.Create(pathLog+dosyaAdi).Close();
             }
         }
         private Dictionary<string, string> ReadFromFileSetting()
         {
             Dictionary<string, string> configValues = new Dictionary<string, string>();
-            string[] lines = File.ReadAllLines(dosyaAdi);
+            string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DolunayYerIstasyonu\\"+ dosyaAdi);
 
             foreach (string line in lines)
             {
@@ -95,6 +95,7 @@
                     Directory.CreateDirectory(pathLog);
                 }
             }
+            CheckConfFile();
             string[] lines = {
             "Ip="+ip,
             "Username="+username,
@@ -107,7 +108,7 @@
             "LogPath="+pathLog
             };
             // Write to the file
-            File.WriteAllLines(dosyaAdi, lines);
+            File.WriteAllLines(pathLog+"\\"+dosyaAdi, lines);
             console.Log("Settings updated.");
         }
         private void WriteFileFromLabel()

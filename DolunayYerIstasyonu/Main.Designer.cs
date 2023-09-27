@@ -70,8 +70,8 @@
             lblDownPicBox = new Label();
             lblFrontPicBox = new Label();
             panel3 = new Panel();
-            btnChangePanelMiddle = new Button();
             pbControllerImage = new PictureBox();
+            btnChangePanelMiddle = new Button();
             lblprogBarRight = new Label();
             lblprogBarLeft = new Label();
             lblRightDis = new Label();
@@ -103,6 +103,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox2.Image = Properties.Resources.motors;
@@ -116,6 +117,8 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSize = true;
             panel1.BackColor = Color.LightGray;
             panel1.Controls.Add(lblServo4);
             panel1.Controls.Add(lblServo3);
@@ -134,6 +137,7 @@
             // 
             // lblServo4
             // 
+            lblServo4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblServo4.BackColor = Color.Transparent;
             lblServo4.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblServo4.Location = new Point(33, 173);
@@ -145,6 +149,7 @@
             // 
             // lblServo3
             // 
+            lblServo3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblServo3.BackColor = Color.Transparent;
             lblServo3.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblServo3.Location = new Point(291, 173);
@@ -156,6 +161,7 @@
             // 
             // lblServo2
             // 
+            lblServo2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblServo2.BackColor = Color.Transparent;
             lblServo2.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblServo2.Location = new Point(33, 9);
@@ -167,6 +173,7 @@
             // 
             // lblServo8
             // 
+            lblServo8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblServo8.BackColor = Color.Transparent;
             lblServo8.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblServo8.Location = new Point(33, 127);
@@ -178,7 +185,7 @@
             // 
             // lblServo7
             // 
-            lblServo7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lblServo7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblServo7.BackColor = Color.Transparent;
             lblServo7.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblServo7.ImageAlign = ContentAlignment.MiddleRight;
@@ -191,6 +198,7 @@
             // 
             // lblServo6
             // 
+            lblServo6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblServo6.BackColor = Color.Transparent;
             lblServo6.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblServo6.Location = new Point(33, 71);
@@ -202,6 +210,7 @@
             // 
             // lblServo5
             // 
+            lblServo5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblServo5.BackColor = Color.Transparent;
             lblServo5.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblServo5.Location = new Point(291, 71);
@@ -213,6 +222,7 @@
             // 
             // lblServo1
             // 
+            lblServo1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblServo1.BackColor = Color.Transparent;
             lblServo1.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblServo1.Location = new Point(291, 9);
@@ -225,6 +235,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label11.Location = new Point(837, 76);
@@ -235,6 +246,7 @@
             // 
             // label12
             // 
+            label12.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label12.Location = new Point(837, 100);
@@ -245,6 +257,7 @@
             // 
             // label13
             // 
+            label13.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label13.AutoSize = true;
             label13.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label13.Location = new Point(837, 124);
@@ -255,6 +268,7 @@
             // 
             // label14
             // 
+            label14.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label14.AutoSize = true;
             label14.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label14.Location = new Point(837, 148);
@@ -265,6 +279,7 @@
             // 
             // label15
             // 
+            label15.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label15.AutoSize = true;
             label15.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label15.Location = new Point(837, 52);
@@ -275,6 +290,7 @@
             // 
             // label16
             // 
+            label16.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label16.AutoSize = true;
             label16.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label16.Location = new Point(837, 196);
@@ -285,6 +301,7 @@
             // 
             // lblFrontCam
             // 
+            lblFrontCam.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblFrontCam.AutoSize = true;
             lblFrontCam.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblFrontCam.ForeColor = Color.Red;
@@ -297,6 +314,7 @@
             // 
             // lblUnderCam
             // 
+            lblUnderCam.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblUnderCam.AutoSize = true;
             lblUnderCam.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblUnderCam.ForeColor = Color.Red;
@@ -309,6 +327,7 @@
             // 
             // lblPresText
             // 
+            lblPresText.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblPresText.AutoSize = true;
             lblPresText.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblPresText.ForeColor = Color.Red;
@@ -322,6 +341,7 @@
             // 
             // lblDisSen
             // 
+            lblDisSen.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblDisSen.AutoSize = true;
             lblDisSen.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblDisSen.ForeColor = Color.Red;
@@ -334,6 +354,7 @@
             // 
             // lblCon
             // 
+            lblCon.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblCon.AutoSize = true;
             lblCon.FlatStyle = FlatStyle.Flat;
             lblCon.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -348,6 +369,7 @@
             // 
             // label34
             // 
+            label34.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label34.AutoSize = true;
             label34.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label34.ForeColor = Color.Black;
@@ -359,6 +381,7 @@
             // 
             // progBarRight
             // 
+            progBarRight.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             progBarRight.ForeColor = Color.Black;
             progBarRight.Location = new Point(278, 87);
             progBarRight.Maximum = 20;
@@ -369,6 +392,7 @@
             // 
             // progBarLeft
             // 
+            progBarLeft.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             progBarLeft.BackColor = Color.LightGray;
             progBarLeft.ForeColor = Color.Black;
             progBarLeft.Location = new Point(92, 86);
@@ -383,6 +407,7 @@
             // 
             // pbDisSubImage
             // 
+            pbDisSubImage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pbDisSubImage.Image = Properties.Resources.arac;
             pbDisSubImage.Location = new Point(117, 40);
             pbDisSubImage.Name = "pbDisSubImage";
@@ -393,6 +418,7 @@
             // 
             // CameraUnder
             // 
+            CameraUnder.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CameraUnder.BackColor = Color.LightGray;
             CameraUnder.BackgroundImageLayout = ImageLayout.Stretch;
             CameraUnder.Image = Properties.Resources.signal;
@@ -405,6 +431,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox3.Image = Properties.Resources.basınc;
@@ -417,6 +444,7 @@
             // 
             // pictureBox4
             // 
+            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox4.BackColor = Color.LightGray;
             pictureBox4.BackgroundImage = Properties.Resources.aracsensor;
             pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
@@ -428,6 +456,8 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.AutoSize = true;
             panel2.BackColor = Color.LightGray;
             panel2.BackgroundImageLayout = ImageLayout.Center;
             panel2.Controls.Add(pictureBox4);
@@ -449,7 +479,7 @@
             // 
             // pbCompass
             // 
-            pbCompass.Anchor = AnchorStyles.None;
+            pbCompass.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pbCompass.BackColor = Color.Transparent;
             pbCompass.Location = new Point(192, 4);
             pbCompass.Name = "pbCompass";
@@ -459,6 +489,7 @@
             // 
             // lblRoll
             // 
+            lblRoll.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblRoll.AutoSize = true;
             lblRoll.BackColor = Color.Transparent;
             lblRoll.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -470,6 +501,7 @@
             // 
             // label23
             // 
+            label23.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label23.AutoSize = true;
             label23.BackColor = Color.Transparent;
             label23.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -481,6 +513,7 @@
             // 
             // lblPitch
             // 
+            lblPitch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblPitch.AutoSize = true;
             lblPitch.BackColor = Color.Transparent;
             lblPitch.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -492,6 +525,7 @@
             // 
             // label22
             // 
+            label22.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label22.AutoSize = true;
             label22.BackColor = Color.Transparent;
             label22.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -503,6 +537,7 @@
             // 
             // lblYaw
             // 
+            lblYaw.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblYaw.AutoSize = true;
             lblYaw.BackColor = Color.Transparent;
             lblYaw.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -514,6 +549,7 @@
             // 
             // label24
             // 
+            label24.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label24.AutoSize = true;
             label24.BackColor = Color.Transparent;
             label24.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -525,6 +561,7 @@
             // 
             // lblPressure
             // 
+            lblPressure.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblPressure.AutoSize = true;
             lblPressure.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
             lblPressure.Location = new Point(36, 173);
@@ -535,6 +572,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(3, 148);
@@ -545,6 +583,7 @@
             // 
             // lblDownPicBox
             // 
+            lblDownPicBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblDownPicBox.AutoSize = true;
             lblDownPicBox.BackColor = Color.LightGray;
             lblDownPicBox.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
@@ -556,6 +595,7 @@
             // 
             // lblFrontPicBox
             // 
+            lblFrontPicBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblFrontPicBox.AutoSize = true;
             lblFrontPicBox.BackColor = Color.LightGray;
             lblFrontPicBox.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
@@ -567,6 +607,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.LightGray;
             panel3.Controls.Add(pbControllerImage);
             panel3.Controls.Add(btnChangePanelMiddle);
@@ -582,8 +623,21 @@
             panel3.Size = new Size(412, 205);
             panel3.TabIndex = 48;
             // 
+            // pbControllerImage
+            // 
+            pbControllerImage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pbControllerImage.BackgroundImage = Properties.Resources.gamedapcont;
+            pbControllerImage.BackgroundImageLayout = ImageLayout.Zoom;
+            pbControllerImage.Location = new Point(3, 0);
+            pbControllerImage.Name = "pbControllerImage";
+            pbControllerImage.Size = new Size(409, 222);
+            pbControllerImage.TabIndex = 43;
+            pbControllerImage.TabStop = false;
+            pbControllerImage.Visible = false;
+            // 
             // btnChangePanelMiddle
             // 
+            btnChangePanelMiddle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnChangePanelMiddle.BackColor = Color.LightGray;
             btnChangePanelMiddle.BackgroundImage = Properties.Resources.change;
             btnChangePanelMiddle.BackgroundImageLayout = ImageLayout.Stretch;
@@ -597,19 +651,9 @@
             btnChangePanelMiddle.Visible = false;
             btnChangePanelMiddle.Click += btnChangePanelMiddle_Click;
             // 
-            // pbControllerImage
-            // 
-            pbControllerImage.BackgroundImage = Properties.Resources.gamedapcont;
-            pbControllerImage.BackgroundImageLayout = ImageLayout.Zoom;
-            pbControllerImage.Location = new Point(3, 0);
-            pbControllerImage.Name = "pbControllerImage";
-            pbControllerImage.Size = new Size(409, 222);
-            pbControllerImage.TabIndex = 43;
-            pbControllerImage.TabStop = false;
-            pbControllerImage.Visible = false;
-            // 
             // lblprogBarRight
             // 
+            lblprogBarRight.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblprogBarRight.AutoSize = true;
             lblprogBarRight.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblprogBarRight.Location = new Point(278, 113);
@@ -621,6 +665,7 @@
             // 
             // lblprogBarLeft
             // 
+            lblprogBarLeft.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblprogBarLeft.AutoSize = true;
             lblprogBarLeft.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblprogBarLeft.Location = new Point(42, 112);
@@ -632,6 +677,7 @@
             // 
             // lblRightDis
             // 
+            lblRightDis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblRightDis.AutoSize = true;
             lblRightDis.Font = new Font("Arial Narrow", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblRightDis.Location = new Point(280, 69);
@@ -642,6 +688,7 @@
             // 
             // lblLeftDis
             // 
+            lblLeftDis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblLeftDis.AutoSize = true;
             lblLeftDis.BackColor = Color.Transparent;
             lblLeftDis.Font = new Font("Arial Narrow", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -653,6 +700,7 @@
             // 
             // btnLog
             // 
+            btnLog.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnLog.BackColor = Color.LightGray;
             btnLog.BackgroundImage = Properties.Resources.log;
             btnLog.BackgroundImageLayout = ImageLayout.Stretch;
@@ -667,6 +715,7 @@
             // 
             // btnJoystick
             // 
+            btnJoystick.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnJoystick.BackColor = Color.LightGray;
             btnJoystick.BackgroundImage = Properties.Resources.gamepad;
             btnJoystick.BackgroundImageLayout = ImageLayout.Zoom;
@@ -682,6 +731,7 @@
             // 
             // btnSSH
             // 
+            btnSSH.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnSSH.BackColor = Color.LightGray;
             btnSSH.BackgroundImage = Properties.Resources.SSH;
             btnSSH.BackgroundImageLayout = ImageLayout.Stretch;
@@ -696,6 +746,7 @@
             // 
             // lblHydrophone
             // 
+            lblHydrophone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblHydrophone.AutoSize = true;
             lblHydrophone.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblHydrophone.ForeColor = Color.Red;
@@ -708,6 +759,7 @@
             // 
             // lbl3
             // 
+            lbl3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lbl3.AutoSize = true;
             lbl3.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lbl3.Location = new Point(837, 172);
@@ -718,10 +770,12 @@
             // 
             // CameraImg
             // 
+            CameraImg.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CameraImg.BackColor = Color.LightGray;
             CameraImg.BackgroundImageLayout = ImageLayout.Stretch;
             CameraImg.Image = Properties.Resources.signal;
             CameraImg.Location = new Point(12, 3);
+            CameraImg.Margin = new Padding(12, 12, 3, 3);
             CameraImg.Name = "CameraImg";
             CameraImg.Size = new Size(820, 446);
             CameraImg.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -734,6 +788,7 @@
             InfoTxtBox.AcceptsReturn = true;
             InfoTxtBox.AcceptsTab = true;
             InfoTxtBox.AllowDrop = true;
+            InfoTxtBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             InfoTxtBox.BackColor = Color.LightGray;
             InfoTxtBox.BorderStyle = BorderStyle.None;
             InfoTxtBox.CausesValidation = false;
@@ -752,12 +807,14 @@
             // 
             // btnCon
             // 
+            btnCon.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnCon.BackColor = Color.Lime;
             btnCon.BackgroundImageLayout = ImageLayout.Center;
             btnCon.FlatAppearance.BorderSize = 0;
             btnCon.FlatStyle = FlatStyle.Flat;
             btnCon.Font = new Font("Arial Narrow", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnCon.Location = new Point(838, 3);
+            btnCon.Margin = new Padding(3, 12, 12, 3);
             btnCon.Name = "btnCon";
             btnCon.Size = new Size(391, 46);
             btnCon.TabIndex = 13;
@@ -767,6 +824,7 @@
             // 
             // btnStop
             // 
+            btnStop.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnStop.BackColor = Color.Red;
             btnStop.FlatAppearance.BorderSize = 0;
             btnStop.FlatStyle = FlatStyle.Flat;
@@ -781,6 +839,7 @@
             // 
             // btnSettings
             // 
+            btnSettings.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnSettings.BackColor = Color.LightGray;
             btnSettings.BackgroundImage = Properties.Resources.settings;
             btnSettings.BackgroundImageLayout = ImageLayout.Stretch;
@@ -797,6 +856,7 @@
             // 
             // lblMode
             // 
+            lblMode.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblMode.AutoSize = true;
             lblMode.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblMode.ForeColor = Color.Blue;
@@ -808,6 +868,7 @@
             // 
             // lblArm
             // 
+            lblArm.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblArm.AutoSize = true;
             lblArm.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblArm.ForeColor = Color.DarkSlateBlue;
@@ -821,11 +882,12 @@
             // Main
             // 
             AllowDrop = true;
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSize = true;
             BackColor = SystemColors.Control;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1241, 718);
+            ClientSize = new Size(1241, 724);
             Controls.Add(lblHydrophone);
             Controls.Add(lbl3);
             Controls.Add(btnSettings);

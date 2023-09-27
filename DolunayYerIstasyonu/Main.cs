@@ -17,7 +17,6 @@ namespace DolunayYerIstasyonu
             // Initialize necessary components and forms.
             uiManager = new UIManager(this);
             console = new LoggerConsole(uiManager);
-
             // Initialize the Settings Form and read settings.
             popupForm = new SettingsForm(this, console);
             dataTransferManager = new DataTransferManager(uiManager, console);

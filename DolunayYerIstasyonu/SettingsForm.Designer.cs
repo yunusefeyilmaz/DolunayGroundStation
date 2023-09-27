@@ -55,7 +55,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(12, 20);
+            label1.Location = new Point(12, 21);
             label1.Name = "label1";
             label1.Size = new Size(81, 20);
             label1.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(229, 18);
+            label2.Location = new Point(231, 21);
             label2.Name = "label2";
             label2.Size = new Size(59, 20);
             label2.TabIndex = 1;
@@ -75,7 +75,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(12, 54);
+            label3.Location = new Point(12, 50);
             label3.Name = "label3";
             label3.Size = new Size(109, 20);
             label3.TabIndex = 2;
@@ -88,7 +88,7 @@
             btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.Location = new Point(184, 264);
+            btnSave.Location = new Point(202, 264);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(104, 33);
             btnSave.TabIndex = 4;
@@ -105,20 +105,22 @@
             // lblHostIP
             // 
             lblHostIP.Location = new Point(296, 18);
+            lblHostIP.Margin = new Padding(3, 3, 12, 3);
             lblHostIP.Name = "lblHostIP";
             lblHostIP.Size = new Size(120, 23);
             lblHostIP.TabIndex = 6;
             // 
             // lblHostPass
             // 
-            lblHostPass.Location = new Point(127, 52);
+            lblHostPass.Location = new Point(127, 47);
             lblHostPass.Name = "lblHostPass";
             lblHostPass.Size = new Size(120, 23);
             lblHostPass.TabIndex = 7;
             // 
             // lblFrontName
             // 
-            lblFrontName.Location = new Point(250, 109);
+            lblFrontName.Location = new Point(250, 105);
+            lblFrontName.Margin = new Padding(3, 3, 12, 3);
             lblFrontName.Name = "lblFrontName";
             lblFrontName.Size = new Size(166, 23);
             lblFrontName.TabIndex = 9;
@@ -127,7 +129,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(12, 111);
+            label4.Location = new Point(12, 108);
             label4.Name = "label4";
             label4.Size = new Size(149, 20);
             label4.TabIndex = 8;
@@ -135,7 +137,8 @@
             // 
             // lblDownName
             // 
-            lblDownName.Location = new Point(250, 138);
+            lblDownName.Location = new Point(250, 134);
+            lblDownName.Margin = new Padding(3, 3, 12, 3);
             lblDownName.Name = "lblDownName";
             lblDownName.Size = new Size(166, 23);
             lblDownName.TabIndex = 11;
@@ -144,7 +147,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(12, 140);
+            label5.Location = new Point(12, 137);
             label5.Name = "label5";
             label5.Size = new Size(153, 20);
             label5.TabIndex = 10;
@@ -152,7 +155,8 @@
             // 
             // lblPixhawkName
             // 
-            lblPixhawkName.Location = new Point(250, 167);
+            lblPixhawkName.Location = new Point(250, 163);
+            lblPixhawkName.Margin = new Padding(3, 3, 12, 3);
             lblPixhawkName.Name = "lblPixhawkName";
             lblPixhawkName.Size = new Size(166, 23);
             lblPixhawkName.TabIndex = 13;
@@ -161,7 +165,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(12, 169);
+            label6.Location = new Point(12, 166);
             label6.Name = "label6";
             label6.Size = new Size(165, 20);
             label6.TabIndex = 12;
@@ -174,7 +178,8 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(308, 264);
+            button1.Location = new Point(312, 264);
+            button1.Margin = new Padding(3, 3, 12, 12);
             button1.Name = "button1";
             button1.Size = new Size(104, 33);
             button1.TabIndex = 14;
@@ -185,7 +190,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(12, 83);
+            label7.Location = new Point(12, 79);
             label7.Name = "label7";
             label7.Size = new Size(99, 20);
             label7.TabIndex = 15;
@@ -194,7 +199,7 @@
             // txtBoxLog
             // 
             txtBoxLog.Enabled = false;
-            txtBoxLog.Location = new Point(128, 81);
+            txtBoxLog.Location = new Point(127, 76);
             txtBoxLog.Name = "txtBoxLog";
             txtBoxLog.ShortcutsEnabled = false;
             txtBoxLog.Size = new Size(251, 23);
@@ -206,7 +211,8 @@
             btnFileExpoler.BackgroundImage = Properties.Resources.file;
             btnFileExpoler.BackgroundImageLayout = ImageLayout.Zoom;
             btnFileExpoler.FlatStyle = FlatStyle.Popup;
-            btnFileExpoler.Location = new Point(381, 81);
+            btnFileExpoler.Location = new Point(381, 74);
+            btnFileExpoler.Margin = new Padding(3, 3, 12, 3);
             btnFileExpoler.Name = "btnFileExpoler";
             btnFileExpoler.Size = new Size(35, 25);
             btnFileExpoler.TabIndex = 17;
@@ -217,7 +223,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(12, 198);
+            label8.Location = new Point(12, 195);
             label8.Name = "label8";
             label8.Size = new Size(169, 20);
             label8.TabIndex = 18;
@@ -225,14 +231,16 @@
             // 
             // lblDistanceName
             // 
-            lblDistanceName.Location = new Point(250, 196);
+            lblDistanceName.Location = new Point(250, 192);
+            lblDistanceName.Margin = new Padding(3, 3, 12, 3);
             lblDistanceName.Name = "lblDistanceName";
             lblDistanceName.Size = new Size(166, 23);
             lblDistanceName.TabIndex = 19;
             // 
             // lblHydrophoneName
             // 
-            lblHydrophoneName.Location = new Point(250, 225);
+            lblHydrophoneName.Location = new Point(250, 221);
+            lblHydrophoneName.Margin = new Padding(3, 3, 12, 3);
             lblHydrophoneName.Name = "lblHydrophoneName";
             lblHydrophoneName.Size = new Size(166, 23);
             lblHydrophoneName.TabIndex = 21;
@@ -241,7 +249,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(12, 227);
+            label9.Location = new Point(12, 224);
             label9.Name = "label9";
             label9.Size = new Size(192, 20);
             label9.TabIndex = 20;
@@ -251,8 +259,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(429, 306);
+            ClientSize = new Size(422, 303);
             ControlBox = false;
             Controls.Add(lblHydrophoneName);
             Controls.Add(label9);
