@@ -46,11 +46,12 @@ namespace DolunayYerIstasyonu
                 JoystickData joystickData = ListenUserInput();
                 string jsonData = JsonConvert.SerializeObject(joystickData);
                 return jsonData;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return "Gamepad not connected";
             }
-            
+
         }
         public bool getControllerCon()
         {

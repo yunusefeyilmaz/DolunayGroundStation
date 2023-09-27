@@ -61,15 +61,15 @@
             // Check if the file exists
             string pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             pathLog = Path.Combine(pathLog, "DolunayYerIstasyonu\\");
-            if (!File.Exists(pathLog+dosyaAdi))
+            if (!File.Exists(pathLog + dosyaAdi))
             {
-                File.Create(pathLog+dosyaAdi).Close();
+                File.Create(pathLog + dosyaAdi).Close();
             }
         }
         private Dictionary<string, string> ReadFromFileSetting()
         {
             Dictionary<string, string> configValues = new Dictionary<string, string>();
-            string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DolunayYerIstasyonu\\"+ dosyaAdi);
+            string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DolunayYerIstasyonu\\" + dosyaAdi);
 
             foreach (string line in lines)
             {
@@ -108,7 +108,7 @@
             "LogPath="+pathLog
             };
             // Write to the file
-            File.WriteAllLines(pathLog+"\\"+dosyaAdi, lines);
+            File.WriteAllLines(pathLog + "\\" + dosyaAdi, lines);
             console.Log("Settings updated.");
         }
         private void WriteFileFromLabel()

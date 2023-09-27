@@ -1,6 +1,4 @@
-﻿using DolunayYerIstasyonu;
-using Newtonsoft.Json;
-using System;
+﻿using Newtonsoft.Json;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -174,7 +172,7 @@ namespace DolunayYerIstasyonu
                         uiManager.RefreshConnectionVerificationLabel();
 
                         // Check if joystick control is enabled.
-                        if (Main.joystickOn&&joystick.getControllerCon())
+                        if (Main.joystickOn && joystick.getControllerCon())
                         {
                             string joyData = joystick.GetJoystickData();
                             byte[] joyBuffer = Encoding.ASCII.GetBytes(joyData);

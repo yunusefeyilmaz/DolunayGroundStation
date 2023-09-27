@@ -174,7 +174,7 @@ namespace DolunayYerIstasyonu
                     main.GetLblCon().Text = "Connection Lost";
                     main.GetLblCon().ForeColor = Color.Red;
 
-                    main.GetLblArm().Text= "No Connection";
+                    main.GetLblArm().Text = "No Connection";
                     main.GetLblMode().Text = "No Connection";
                     main.GetCameraFront().Image = null;
                     main.GetCameraUnder().Image = null;
