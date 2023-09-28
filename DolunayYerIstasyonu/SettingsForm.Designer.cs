@@ -49,6 +49,13 @@
             lblDistanceName = new TextBox();
             lblHydrophoneName = new TextBox();
             label9 = new Label();
+            label10 = new Label();
+            lblPort = new TextBox();
+            label11 = new Label();
+            trackTheme = new TrackBar();
+            label12 = new Label();
+            label13 = new Label();
+            ((System.ComponentModel.ISupportInitialize)trackTheme).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -97,24 +104,24 @@
             // 
             // lblHostName
             // 
-            lblHostName.Location = new Point(103, 18);
+            lblHostName.Location = new Point(127, 18);
             lblHostName.Name = "lblHostName";
-            lblHostName.Size = new Size(120, 23);
+            lblHostName.Size = new Size(100, 23);
             lblHostName.TabIndex = 5;
             // 
             // lblHostIP
             // 
-            lblHostIP.Location = new Point(296, 18);
+            lblHostIP.Location = new Point(316, 18);
             lblHostIP.Margin = new Padding(3, 3, 12, 3);
             lblHostIP.Name = "lblHostIP";
-            lblHostIP.Size = new Size(120, 23);
+            lblHostIP.Size = new Size(100, 23);
             lblHostIP.TabIndex = 6;
             // 
             // lblHostPass
             // 
             lblHostPass.Location = new Point(127, 47);
             lblHostPass.Name = "lblHostPass";
-            lblHostPass.Size = new Size(120, 23);
+            lblHostPass.Size = new Size(100, 23);
             lblHostPass.TabIndex = 7;
             // 
             // lblFrontName
@@ -208,6 +215,7 @@
             // 
             // btnFileExpoler
             // 
+            btnFileExpoler.BackColor = Color.LightGray;
             btnFileExpoler.BackgroundImage = Properties.Resources.file;
             btnFileExpoler.BackgroundImageLayout = ImageLayout.Zoom;
             btnFileExpoler.FlatStyle = FlatStyle.Popup;
@@ -216,7 +224,7 @@
             btnFileExpoler.Name = "btnFileExpoler";
             btnFileExpoler.Size = new Size(35, 25);
             btnFileExpoler.TabIndex = 17;
-            btnFileExpoler.UseVisualStyleBackColor = true;
+            btnFileExpoler.UseVisualStyleBackColor = false;
             btnFileExpoler.Click += btnFileExpoler_Click;
             // 
             // label8
@@ -255,14 +263,79 @@
             label9.TabIndex = 20;
             label9.Text = "Hydrophone Data Json Name :";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(231, 50);
+            label10.Name = "label10";
+            label10.Size = new Size(41, 20);
+            label10.TabIndex = 22;
+            label10.Text = "Port :";
+            // 
+            // lblPort
+            // 
+            lblPort.Location = new Point(316, 47);
+            lblPort.Margin = new Padding(3, 3, 12, 3);
+            lblPort.Name = "lblPort";
+            lblPort.Size = new Size(100, 23);
+            lblPort.TabIndex = 23;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(12, 269);
+            label11.Name = "label11";
+            label11.Size = new Size(60, 20);
+            label11.TabIndex = 24;
+            label11.Text = "Theme : ";
+            // 
+            // trackTheme
+            // 
+            trackTheme.AutoSize = false;
+            trackTheme.LargeChange = 1;
+            trackTheme.Location = new Point(78, 262);
+            trackTheme.Maximum = 1;
+            trackTheme.Name = "trackTheme";
+            trackTheme.Size = new Size(83, 35);
+            trackTheme.TabIndex = 25;
+            trackTheme.TickStyle = TickStyle.Both;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(70, 244);
+            label12.Name = "label12";
+            label12.Size = new Size(41, 20);
+            label12.TabIndex = 26;
+            label12.Text = "Light";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(127, 244);
+            label13.Name = "label13";
+            label13.Size = new Size(37, 20);
+            label13.TabIndex = 27;
+            label13.Text = "Dark";
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(422, 303);
+            ClientSize = new Size(412, 299);
             ControlBox = false;
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(trackTheme);
+            Controls.Add(label11);
+            Controls.Add(lblPort);
+            Controls.Add(label10);
             Controls.Add(lblHydrophoneName);
             Controls.Add(label9);
             Controls.Add(lblDistanceName);
@@ -291,6 +364,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Ayarlar";
             Load += SettingsForm_Load;
+            ((System.ComponentModel.ISupportInitialize)trackTheme).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -318,5 +392,11 @@
         private TextBox lblDistanceName;
         private TextBox lblHydrophoneName;
         private Label label9;
+        private Label label10;
+        private TextBox lblPort;
+        private Label label11;
+        private TrackBar trackTheme;
+        private Label label12;
+        private Label label13;
     }
 }

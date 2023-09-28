@@ -2,7 +2,7 @@ namespace DolunayYerIstasyonu
 {
     public partial class Main : Form
     {
-        private SettingsForm popupForm;
+        private SettingsForm settingsForm;
         private SshClientWrapper sshClient;
         private LoggerConsole console;
         private UIManager uiManager;
@@ -18,10 +18,15 @@ namespace DolunayYerIstasyonu
             uiManager = new UIManager(this);
             console = new LoggerConsole(uiManager);
             // Initialize the Settings Form and read settings.
-            popupForm = new SettingsForm(this, console);
+            settingsForm = new SettingsForm(this, console);
             dataTransferManager = new DataTransferManager(uiManager, console);
             sshClient = new SshClientWrapper(SettingsForm.HOST, SettingsForm.USERNAME, SettingsForm.PASSWORD, console);
+            //Check theme
+            uiManager.changeTheme(settingsForm);
         }
+        public Panel GetPanel1() { return panel1; }
+        public Panel GetPanel2() { return panel2; }
+        public Panel GetPanel3() { return panel3; }
         public Label GetLblPitch()
         {
             return lblPitch;
@@ -163,6 +168,22 @@ namespace DolunayYerIstasyonu
             return pbControllerImage;
         }
 
+        public Button GetLogButton()
+        {
+            return btnLog;
+        }
+        public Button GetSSHButton()
+        {
+            return btnSSH;
+        }
+        public Button GetJoystickButton()
+        {
+            return btnJoystick;
+        }
+        public Button GetSettingsButton()
+        {
+            return btnSettings;
+        }
         public Button GetBtnCon()
         {
             return btnCon;
@@ -215,9 +236,10 @@ namespace DolunayYerIstasyonu
         private void btnSettings_Click(object sender, EventArgs e)
         {
             // Handle the settings button click event to open the settings form.
-            if (popupForm.ShowDialog() == DialogResult.OK)
+            if (settingsForm.ShowDialog() == DialogResult.OK)
             {
-                popupForm.RefreshSettingData();
+                settingsForm.RefreshSettingData();
+                uiManager.changeTheme(settingsForm);
             }
         }
 

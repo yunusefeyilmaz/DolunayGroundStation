@@ -11,10 +11,12 @@
         public static string PATHLOG = "";
         public static string DISTANCE = "";
         public static string HYDROPHONE = "";
+        public static int PORT = 65432;
+        public static bool THEME = true;
         private string dosyaAdi = "config.txt";
         private Main main;
         private LoggerConsole console;
-
+        private bool notValidData = false;
         public SettingsForm()
         {
 
@@ -32,8 +34,20 @@
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             RefreshSettingLabel();
+            lblPort.KeyPress += new KeyPressEventHandler(lblPort_KeyPress);
         }
-
+        private void lblPort_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Sadece sayılar, boşluk, backspace ve silme tuşlarına izin ver
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Bu karakteri engelle
+            }
+        }
+        public Button GetFileExpButton()
+        {
+            return btnFileExpoler;
+        }
         private void RefreshSettingLabel()
         {
             try
@@ -48,6 +62,8 @@
                 txtBoxLog.Text = configValues["LogPath"];
                 lblDistanceName.Text = configValues["DistanceName"];
                 lblHydrophoneName.Text = configValues["HydrophoneName"];
+                lblPort.Text = configValues["Port"];
+                trackTheme.Value = (configValues["Theme"] == "true") ? 1 : 0;
             }
             catch (Exception ex)
             {
@@ -56,20 +72,10 @@
                 RefreshSettingLabel();
             }
         }
-        private void CheckConfFile()
-        {
-            // Check if the file exists
-            string pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            pathLog = Path.Combine(pathLog, "DolunayYerIstasyonu\\");
-            if (!File.Exists(pathLog + dosyaAdi))
-            {
-                File.Create(pathLog + dosyaAdi).Close();
-            }
-        }
         private Dictionary<string, string> ReadFromFileSetting()
         {
             Dictionary<string, string> configValues = new Dictionary<string, string>();
-            string[] lines = File.ReadAllLines(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DolunayYerIstasyonu\\" + dosyaAdi);
+            string[] lines = File.ReadAllLines(PATHLOG + "\\" + dosyaAdi);
 
             foreach (string line in lines)
             {
@@ -84,37 +90,70 @@
 
         private void WriteFileSetting(string ip = "raspberrypi", string username = "raspberrypi", string password = "123456",
             string fName = "cam1", string dName = "cam2", string pxName = "pixhawkdata", string pathLog = "", string disName = "distance",
-            string hydrName = "hydrophone")
+            string hydrName = "hydrophone", string port = "65432", string theme = "false")
         {
+            bool write = false;
             if (pathLog == "")
             {
-                pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                pathLog = Path.Combine(pathLog, "DolunayYerIstasyonu");
+                pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DolunayYerIstasyonu";
                 if (!Directory.Exists(pathLog)) // Create the folder if it doesn't exist
                 {
                     Directory.CreateDirectory(pathLog);
+                    File.Create(pathLog + "\\" + dosyaAdi).Close();
+                    write = true;
                 }
+                else
+                {
+                    if (!File.Exists(pathLog + "\\" + dosyaAdi))
+                    {
+                        File.Create(pathLog + "\\" + dosyaAdi).Close();
+                        write = true;
+                    }
+                }
+                PATHLOG = pathLog;
             }
-            CheckConfFile();
-            string[] lines = {
-            "Ip="+ip,
-            "Username="+username,
-            "Password="+password,
-            "FrontCamName="+fName,
-            "DownCamName="+dName,
-            "PixhawkName="+pxName,
-            "DistanceName="+disName,
-            "HydrophoneName="+hydrName,
-            "LogPath="+pathLog
-            };
-            // Write to the file
-            File.WriteAllLines(pathLog + "\\" + dosyaAdi, lines);
-            console.Log("Settings updated.");
+            else
+            {
+                if (PATHLOG != pathLog)
+                {
+                    File.Create(pathLog + "\\" + dosyaAdi).Close();
+                    PATHLOG = pathLog;
+                }
+                else
+                {
+                    if (!File.Exists(pathLog + "\\" + dosyaAdi))
+                    {
+                        File.Create(pathLog + "\\" + dosyaAdi).Close();
+                    }
+                }
+                write = true;
+            }
+            if (write || notValidData)
+            {
+                string[] lines = {
+                "Ip="+ip,
+                "Username="+username,
+                "Password="+password,
+                "Port="+port,
+                "FrontCamName="+fName,
+                "DownCamName="+dName,
+                "PixhawkName="+pxName,
+                "DistanceName="+disName,
+                "HydrophoneName="+hydrName,
+                "LogPath="+pathLog,
+                "Theme="+theme
+                };
+                // Write to the file
+                File.WriteAllLines(pathLog + "\\" + dosyaAdi, lines);
+                console.Log("Settings updated.");
+                notValidData = false;
+            }
+
         }
         private void WriteFileFromLabel()
         {
             WriteFileSetting(lblHostIP.Text, lblHostName.Text, lblHostPass.Text, lblFrontName.Text, lblDownName.Text, lblPixhawkName.Text,
-                txtBoxLog.Text, lblDistanceName.Text, lblHydrophoneName.Text);
+                txtBoxLog.Text, lblDistanceName.Text, lblHydrophoneName.Text, lblPort.Text, trackTheme.Value == 1 ? ("true") : ("false"));
         }
 
         public void RefreshSettingData()
@@ -136,11 +175,14 @@
                 PATHLOG = configValues["LogPath"];
                 DISTANCE = configValues["DistanceName"];
                 HYDROPHONE = configValues["HydrophoneName"];
+                PORT = int.Parse(configValues["Port"]);
+                THEME = bool.Parse(configValues["Theme"]);
             }
             catch (Exception ex)
             {
                 WriteFileSetting();
                 console.Log("Error: " + ex.Message);
+                notValidData = true;
             }
 
         }

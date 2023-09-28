@@ -19,7 +19,7 @@ namespace DolunayYerIstasyonu
         {
             isDataTransferRunning = false;
             this.uiManager = ui;
-            listener = new TcpListener(IPAddress.Any, 65432);
+            listener = new TcpListener(IPAddress.Any, SettingsForm.PORT);
             joystick = new Joystick();
             this.console = console;
         }

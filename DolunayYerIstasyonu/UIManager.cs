@@ -16,6 +16,49 @@ namespace DolunayYerIstasyonu
             this.main = main;
             main.GetPbCompass().Image = Compass.DrawCompass(0, 0, 0, main.GetPbCompass().Size);
         }
+        public void changeTheme(SettingsForm st)
+        {
+            if (SettingsForm.THEME)
+            {
+                st.BackColor = Color.Black;
+                st.ForeColor = Color.White;
+                st.GetFileExpButton().BackColor = Color.Gray;
+                main.BackColor = Color.Black;
+                main.ForeColor = Color.White;
+                main.GetCameraFront().BackColor = Color.Gray;
+                main.GetCameraUnder().BackColor = Color.Gray;
+                main.GetInfoTxtBox().BackColor = Color.Gray;
+                main.GetInfoTxtBox().ForeColor = Color.White;
+                main.GetJoystickButton().BackColor = Color.Gray;
+                main.GetLogButton().BackColor = Color.Gray;
+                main.GetJoystickButton().BackColor = Color.Gray;
+                main.GetSettingsButton().BackColor = Color.Gray;
+                main.GetSSHButton().BackColor = Color.Gray;
+                main.GetPanel1().BackColor = Color.Gray;
+                main.GetPanel2().BackColor = Color.Gray;
+                main.GetPanel3().BackColor = Color.Gray;
+            }
+            else
+            {
+                st.BackColor = Color.FromKnownColor(KnownColor.Control);
+                st.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                st.GetFileExpButton().BackColor = Color.LightGray;
+                main.BackColor = Color.FromKnownColor(KnownColor.Control);
+                main.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                main.GetCameraFront().BackColor = Color.LightGray;
+                main.GetCameraUnder().BackColor = Color.LightGray;
+                main.GetInfoTxtBox().BackColor = Color.LightGray;
+                main.GetInfoTxtBox().ForeColor = Color.FromKnownColor(KnownColor.ControlText);
+                main.GetJoystickButton().BackColor = Color.LightGray;
+                main.GetLogButton().BackColor = Color.LightGray;
+                main.GetJoystickButton().BackColor = Color.LightGray;
+                main.GetSettingsButton().BackColor = Color.LightGray;
+                main.GetSSHButton().BackColor = Color.LightGray;
+                main.GetPanel1().BackColor = Color.LightGray;
+                main.GetPanel2().BackColor = Color.LightGray;
+                main.GetPanel3().BackColor = Color.LightGray;
+            }
+        }
         public void setInfoTextBox(string text)
         {
             try

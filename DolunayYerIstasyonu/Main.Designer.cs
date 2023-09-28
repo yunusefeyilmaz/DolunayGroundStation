@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             pictureBox2 = new PictureBox();
-            panel1 = new Panel();
+            panel3 = new Panel();
             lblServo4 = new Label();
             lblServo3 = new Label();
             lblServo2 = new Label();
@@ -57,7 +57,7 @@
             CameraUnder = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
-            panel2 = new Panel();
+            panel1 = new Panel();
             pbCompass = new PictureBox();
             lblRoll = new Label();
             label23 = new Label();
@@ -69,7 +69,7 @@
             label1 = new Label();
             lblDownPicBox = new Label();
             lblFrontPicBox = new Label();
-            panel3 = new Panel();
+            panel2 = new Panel();
             pbControllerImage = new PictureBox();
             btnChangePanelMiddle = new Button();
             lblprogBarRight = new Label();
@@ -89,14 +89,14 @@
             lblMode = new Label();
             lblArm = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel1.SuspendLayout();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDisSubImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CameraUnder).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            panel2.SuspendLayout();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbCompass).BeginInit();
-            panel3.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbControllerImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CameraImg).BeginInit();
             SuspendLayout();
@@ -115,25 +115,25 @@
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
             // 
-            // panel1
+            // panel3
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.AutoSize = true;
-            panel1.BackColor = Color.LightGray;
-            panel1.Controls.Add(lblServo4);
-            panel1.Controls.Add(lblServo3);
-            panel1.Controls.Add(lblServo2);
-            panel1.Controls.Add(lblServo8);
-            panel1.Controls.Add(lblServo7);
-            panel1.Controls.Add(lblServo6);
-            panel1.Controls.Add(lblServo5);
-            panel1.Controls.Add(lblServo1);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Location = new Point(838, 507);
-            panel1.Margin = new Padding(0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(391, 205);
-            panel1.TabIndex = 5;
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.AutoSize = true;
+            panel3.BackColor = Color.LightGray;
+            panel3.Controls.Add(lblServo4);
+            panel3.Controls.Add(lblServo3);
+            panel3.Controls.Add(lblServo2);
+            panel3.Controls.Add(lblServo8);
+            panel3.Controls.Add(lblServo7);
+            panel3.Controls.Add(lblServo6);
+            panel3.Controls.Add(lblServo5);
+            panel3.Controls.Add(lblServo1);
+            panel3.Controls.Add(pictureBox2);
+            panel3.Location = new Point(838, 507);
+            panel3.Margin = new Padding(0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(391, 205);
+            panel3.TabIndex = 5;
             // 
             // lblServo4
             // 
@@ -445,7 +445,7 @@
             // pictureBox4
             // 
             pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox4.BackColor = Color.LightGray;
+            pictureBox4.BackColor = Color.Transparent;
             pictureBox4.BackgroundImage = Properties.Resources.aracsensor;
             pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox4.Location = new Point(3, 4);
@@ -454,28 +454,28 @@
             pictureBox4.TabIndex = 35;
             pictureBox4.TabStop = false;
             // 
-            // panel2
+            // panel1
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.AutoSize = true;
-            panel2.BackColor = Color.LightGray;
-            panel2.BackgroundImageLayout = ImageLayout.Center;
-            panel2.Controls.Add(pictureBox4);
-            panel2.Controls.Add(pbCompass);
-            panel2.Controls.Add(lblRoll);
-            panel2.Controls.Add(label23);
-            panel2.Controls.Add(lblPitch);
-            panel2.Controls.Add(label22);
-            panel2.Controls.Add(pictureBox3);
-            panel2.Controls.Add(lblYaw);
-            panel2.Controls.Add(label24);
-            panel2.Controls.Add(lblPressure);
-            panel2.Controls.Add(label1);
-            panel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            panel2.Location = new Point(12, 507);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(402, 205);
-            panel2.TabIndex = 44;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSize = true;
+            panel1.BackColor = Color.LightGray;
+            panel1.BackgroundImageLayout = ImageLayout.Center;
+            panel1.Controls.Add(pictureBox4);
+            panel1.Controls.Add(pbCompass);
+            panel1.Controls.Add(lblRoll);
+            panel1.Controls.Add(label23);
+            panel1.Controls.Add(lblPitch);
+            panel1.Controls.Add(label22);
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(lblYaw);
+            panel1.Controls.Add(label24);
+            panel1.Controls.Add(lblPressure);
+            panel1.Controls.Add(label1);
+            panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            panel1.Location = new Point(12, 507);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(402, 205);
+            panel1.TabIndex = 44;
             // 
             // pbCompass
             // 
@@ -605,23 +605,23 @@
             lblFrontPicBox.TabIndex = 46;
             lblFrontPicBox.Text = "Front Camera";
             // 
-            // panel3
+            // panel2
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.BackColor = Color.LightGray;
-            panel3.Controls.Add(pbControllerImage);
-            panel3.Controls.Add(btnChangePanelMiddle);
-            panel3.Controls.Add(progBarLeft);
-            panel3.Controls.Add(lblprogBarRight);
-            panel3.Controls.Add(lblprogBarLeft);
-            panel3.Controls.Add(progBarRight);
-            panel3.Controls.Add(lblRightDis);
-            panel3.Controls.Add(lblLeftDis);
-            panel3.Controls.Add(pbDisSubImage);
-            panel3.Location = new Point(420, 507);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(412, 205);
-            panel3.TabIndex = 48;
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = Color.LightGray;
+            panel2.Controls.Add(pbControllerImage);
+            panel2.Controls.Add(btnChangePanelMiddle);
+            panel2.Controls.Add(progBarLeft);
+            panel2.Controls.Add(lblprogBarRight);
+            panel2.Controls.Add(lblprogBarLeft);
+            panel2.Controls.Add(progBarRight);
+            panel2.Controls.Add(lblRightDis);
+            panel2.Controls.Add(lblLeftDis);
+            panel2.Controls.Add(pbDisSubImage);
+            panel2.Location = new Point(420, 507);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(412, 205);
+            panel2.TabIndex = 48;
             // 
             // pbControllerImage
             // 
@@ -895,10 +895,10 @@
             Controls.Add(btnJoystick);
             Controls.Add(btnLog);
             Controls.Add(InfoTxtBox);
-            Controls.Add(panel3);
+            Controls.Add(panel2);
             Controls.Add(lblFrontPicBox);
             Controls.Add(lblDownPicBox);
-            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(CameraUnder);
             Controls.Add(label34);
             Controls.Add(lblArm);
@@ -916,7 +916,7 @@
             Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(label11);
-            Controls.Add(panel1);
+            Controls.Add(panel3);
             Controls.Add(CameraImg);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -928,16 +928,16 @@
             Text = "DOLUNAY YER ISTASYONU";
             Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbDisSubImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)CameraUnder).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbCompass).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbCompass).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbControllerImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)CameraImg).EndInit();
             ResumeLayout(false);
@@ -946,7 +946,7 @@
 
         #endregion
         private PictureBox pictureBox2;
-        private Panel panel1;
+        private Panel panel3;
         private Label lblServo1;
         private Label label11;
         private Label label12;
@@ -978,13 +978,13 @@
         private Label lblServo6;
         private Label lblServo5;
         private PictureBox pictureBox3;
-        private Panel panel2;
+        private Panel panel1;
         private Label lblDownPicBox;
         private Label lblFrontPicBox;
         private Button button9;
         private Label lblInfo;
         private PictureBox pbCompass;
-        private Panel panel3;
+        private Panel panel2;
         private Button btnLog;
         private Button btnJoystick;
         private Button btnSSH;

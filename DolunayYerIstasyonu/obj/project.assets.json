@@ -4778,7 +4778,8 @@
     "net6.0-windows7.0": [
       "Newtonsoft.Json >= 13.0.3",
       "SSH.NET >= 2020.0.2",
-      "SharpDX.XInput >= 4.2.0"
+      "SharpDX.XInput >= 4.2.0",
+      "SshNet.Security.Cryptography >= 1.3.0"
     ]
   },
   "packageFolders": {
@@ -4831,6 +4832,10 @@
           "SharpDX.XInput": {
             "target": "Package",
             "version": "[4.2.0, )"
+          },
+          "SshNet.Security.Cryptography": {
+            "target": "Package",
+            "version": "[1.3.0, )"
           }
         },
         "imports": [
