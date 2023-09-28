@@ -27,6 +27,14 @@ namespace DolunayYerIstasyonu
         public Panel GetPanel1() { return panel1; }
         public Panel GetPanel2() { return panel2; }
         public Panel GetPanel3() { return panel3; }
+        public Label GetLblFrontPicBox()
+        {
+            return lblFrontPicBox;
+        }
+        public Label GetLblUnderPicBox()
+        {
+            return lblDownPicBox;
+        }
         public Label GetLblPitch()
         {
             return lblPitch;

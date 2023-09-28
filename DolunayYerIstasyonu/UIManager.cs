@@ -26,7 +26,9 @@ namespace DolunayYerIstasyonu
                 main.BackColor = Color.Black;
                 main.ForeColor = Color.White;
                 main.GetCameraFront().BackColor = Color.Gray;
+                main.GetLblFrontPicBox().BackColor = Color.Gray;    
                 main.GetCameraUnder().BackColor = Color.Gray;
+                main.GetLblUnderPicBox().BackColor = Color.Gray;
                 main.GetInfoTxtBox().BackColor = Color.Gray;
                 main.GetInfoTxtBox().ForeColor = Color.White;
                 main.GetJoystickButton().BackColor = Color.Gray;
@@ -46,7 +48,9 @@ namespace DolunayYerIstasyonu
                 main.BackColor = Color.FromKnownColor(KnownColor.Control);
                 main.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
                 main.GetCameraFront().BackColor = Color.LightGray;
+                main.GetLblFrontPicBox().BackColor = Color.LightGray;
                 main.GetCameraUnder().BackColor = Color.LightGray;
+                main.GetLblUnderPicBox().BackColor = Color.LightGray;
                 main.GetInfoTxtBox().BackColor = Color.LightGray;
                 main.GetInfoTxtBox().ForeColor = Color.FromKnownColor(KnownColor.ControlText);
                 main.GetJoystickButton().BackColor = Color.LightGray;
