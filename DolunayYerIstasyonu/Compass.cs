@@ -1,6 +1,6 @@
-﻿using DolunayYerIstasyonu.Properties;
+﻿using DolunayGroundStation.Properties;
 
-namespace DolunayYerIstasyonu
+namespace DolunayGroundStation
 {
     public class Compass
     {

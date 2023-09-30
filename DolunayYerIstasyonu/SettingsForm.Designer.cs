@@ -1,4 +1,4 @@
-﻿namespace DolunayYerIstasyonu
+﻿namespace DolunayGroundStation
 {
     partial class SettingsForm
     {
@@ -327,8 +327,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(412, 299);
+            ClientSize = new Size(423, 307);
             ControlBox = false;
             Controls.Add(label13);
             Controls.Add(label12);

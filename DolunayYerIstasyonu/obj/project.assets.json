@@ -4788,9 +4788,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yunus\\source\\repos\\DolunayYerIstasyonu\\DolunayYerIstasyonu\\DolunayYerIstasyonu.csproj",
-      "projectName": "DolunayYerIstasyonu",
-      "projectPath": "C:\\Users\\Yunus\\source\\repos\\DolunayYerIstasyonu\\DolunayYerIstasyonu\\DolunayYerIstasyonu.csproj",
+      "projectUniqueName": "C:\\Users\\Yunus\\source\\repos\\DolunayYerIstasyonu\\DolunayYerIstasyonu\\DolunayGroundStation.csproj",
+      "projectName": "DolunayGroundStation",
+      "projectPath": "C:\\Users\\Yunus\\source\\repos\\DolunayYerIstasyonu\\DolunayYerIstasyonu\\DolunayGroundStation.csproj",
       "packagesPath": "C:\\Users\\Yunus\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Yunus\\source\\repos\\DolunayYerIstasyonu\\DolunayYerIstasyonu\\obj\\",
       "projectStyle": "PackageReference",

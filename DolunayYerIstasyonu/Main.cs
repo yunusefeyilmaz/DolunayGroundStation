@@ -1,4 +1,4 @@
-namespace DolunayYerIstasyonu
+namespace DolunayGroundStation
 {
     public partial class Main : Form
     {
@@ -232,7 +232,6 @@ namespace DolunayYerIstasyonu
             DialogResult dialogResult = MessageBox.Show("ARE YOU SURE YOU WANT TO PERFORM AN EMERGENCY STOP?", "EMERGENCY STOP", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                sshClient.Connect();
                 sshClient.ExecuteEmergencyStop();
             }
             else if (dialogResult == DialogResult.No)
@@ -254,9 +253,16 @@ namespace DolunayYerIstasyonu
         private void btnSSH_Click(object sender, EventArgs e)
         {
             // Handle the SSH button click event to connect and execute SSH commands.
-            sshClient.Connect();
-            var cmd = sshClient.CreateShellStream();
-            sshClient.Disconnect();
+            try
+            {
+                sshClient.CreateShellStream();
+            }
+            catch (Exception ex)
+            {
+                console.Log("Error: " + ex.Message);
+                console.Log("SSH console could not be created.");
+            }
+
         }
 
         private void btnLog_Click(object sender, EventArgs e)

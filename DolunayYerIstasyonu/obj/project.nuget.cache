@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "098w9HNlWV28Nrp9axmN7r3gdl6xCfqQXJEyoGB1isovEVYtsMyuqmztu9Z20oOIZZcrEknOwLbUmLA8Z6ntAQ==",
+  "dgSpecHash": "FJojhaRiNT/SJHbCdSLp+oohnvi9iu3eKmkKdqKZjYbMtXDfu8m4vfDT8HsN3xC1hSUa9ShY2p6c0VcvgWH+Mw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Yunus\\source\\repos\\DolunayYerIstasyonu\\DolunayYerIstasyonu\\DolunayYerIstasyonu.csproj",
+  "projectFilePath": "C:\\Users\\Yunus\\source\\repos\\DolunayYerIstasyonu\\DolunayYerIstasyonu\\DolunayGroundStation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Yunus\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Yunus\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

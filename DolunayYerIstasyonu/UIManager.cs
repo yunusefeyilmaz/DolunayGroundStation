@@ -1,11 +1,13 @@
 ﻿using System.Diagnostics;
 
-namespace DolunayYerIstasyonu
+namespace DolunayGroundStation
 {
     public class UIManager
     {
         Main main;
         private Image signalResource = Properties.Resources.signal;
+        private Image whiteCont = Properties.Resources.gamedapcontwhite;
+        private Image blackCont = Properties.Resources.gamedapcont;
         public static bool conCheckBtn = false;
         public static bool conCheck = false;
         public static bool presCheck = false;
@@ -26,7 +28,7 @@ namespace DolunayYerIstasyonu
                 main.BackColor = Color.Black;
                 main.ForeColor = Color.White;
                 main.GetCameraFront().BackColor = Color.Gray;
-                main.GetLblFrontPicBox().BackColor = Color.Gray;    
+                main.GetLblFrontPicBox().BackColor = Color.Gray;
                 main.GetCameraUnder().BackColor = Color.Gray;
                 main.GetLblUnderPicBox().BackColor = Color.Gray;
                 main.GetInfoTxtBox().BackColor = Color.Gray;
@@ -39,6 +41,7 @@ namespace DolunayYerIstasyonu
                 main.GetPanel1().BackColor = Color.Gray;
                 main.GetPanel2().BackColor = Color.Gray;
                 main.GetPanel3().BackColor = Color.Gray;
+                main.GetControllerImage().BackgroundImage = whiteCont;
             }
             else
             {
@@ -61,6 +64,7 @@ namespace DolunayYerIstasyonu
                 main.GetPanel1().BackColor = Color.LightGray;
                 main.GetPanel2().BackColor = Color.LightGray;
                 main.GetPanel3().BackColor = Color.LightGray;
+                main.GetControllerImage().BackgroundImage = blackCont;
             }
         }
         public void setInfoTextBox(string text)
@@ -121,20 +125,20 @@ namespace DolunayYerIstasyonu
             /* 
               *** DATA FORMAT ***
              "pixhawkdata": {
-             "yaw":  ,
-             "roll": ,
-             "pitch":    ,
-             "basinc":   ,
-             "servo1":   ,
-             "servo2":   ,
-             "servo3":   ,
-             "servo4":   ,
-             "servo5":   ,
-             "servo6":   ,   
-             "servo7":   ,
-             "servo8":   ,
-             "mode": ,
-             "arm":  
+             "yaw": 3.12 ,
+             "roll": 3.12,
+             "pitch":    3.2,
+             "pressure":   10,
+             "servo1": 1500,
+             "servo2": 1500,
+             "servo3": 1500,
+             "servo4": 1500,
+             "servo5":1500,
+             "servo6":1500,   
+             "servo7":1500,
+             "servo8":1500,
+             "mode":"ACRO" ,
+             "arm":  "ARM"
              }
               */
             if (main.InvokeRequired)
@@ -153,7 +157,7 @@ namespace DolunayYerIstasyonu
                     main.GetLblRoll().Text = roll.ToString("0.###");
                     main.GetLblPitch().Text = pitch.ToString("0.###");
 
-                    double pressure = double.Parse(pixhawkdata["basinc"].ToString());
+                    double pressure = double.Parse(pixhawkdata["pressure"].ToString());
                     main.GetLblPressure().Text = pressure.ToString("0.###") + " M";
                     presCheck = (pressure != 0);
 

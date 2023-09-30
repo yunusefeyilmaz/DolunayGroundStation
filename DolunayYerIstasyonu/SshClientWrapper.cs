@@ -1,6 +1,7 @@
 ﻿using Renci.SshNet;
+using System.Diagnostics;
 
-namespace DolunayYerIstasyonu
+namespace DolunayGroundStation
 {
     internal class SshClientWrapper
     {
@@ -24,6 +25,7 @@ namespace DolunayYerIstasyonu
             {
                 console.Log("Unable to establish an SSH connection.");
                 console.Log("Error: " + ex.Message);
+                throw ex;
             }
         }
 
@@ -36,9 +38,12 @@ namespace DolunayYerIstasyonu
         {
             try
             {
+                Connect();
                 console.Log("Attempting emergency stop. Please wait.");
-                var pythonKillCommand = "sudo pkill python && sleep 3 && sudo reboot";
+                var pythonKillCommand = "sudo pkill python";
                 var pythonKillResponse = client.RunCommand(pythonKillCommand);
+                var rebootCommand = "sleep 3 && sudo reboot";
+                var rebootResponse = client.RunCommand(rebootCommand);
                 console.Log("Emergency stop executed successfully.");
             }
             catch (Exception ex)
@@ -52,16 +57,35 @@ namespace DolunayYerIstasyonu
             }
         }
 
-        public ShellStream CreateShellStream()
+        public void CreateShellStream()
         {
             try
             {
-                return client.CreateShellStream("dumb", 80, 24, 800, 600, 1024);
+                Connect();
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    RedirectStandardInput = true,
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = false
+                };
+                Process process = new Process { StartInfo = psi };
+                process.Start();
+                StreamWriter sw = process.StandardInput;
+                StreamReader sr = process.StandardOutput;
+
+                sw.WriteLine($"ssh -t {SettingsForm.USERNAME}@{SettingsForm.HOST}");
+                sw.WriteLine(SettingsForm.PASSWORD);
+                process.Close();
             }
             catch (Exception ex)
             {
                 console.Log("SSH console could not be created.");
-                return null;
+            }
+            finally
+            {
+                Disconnect();
             }
         }
 

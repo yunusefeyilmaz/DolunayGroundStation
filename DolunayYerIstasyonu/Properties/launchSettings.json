@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "DolunayYerIstasyonu": {
+    "DolunayGroundStation": {
       "commandName": "Project",
       "nativeDebugging": false
     }

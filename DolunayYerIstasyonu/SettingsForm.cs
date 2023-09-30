@@ -1,4 +1,4 @@
-﻿namespace DolunayYerIstasyonu
+﻿namespace DolunayGroundStation
 {
     public partial class SettingsForm : Form
     {
@@ -95,7 +95,7 @@
             bool write = false;
             if (pathLog == "")
             {
-                pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DolunayYerIstasyonu";
+                pathLog = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DolunayGroundStation";
                 if (!Directory.Exists(pathLog)) // Create the folder if it doesn't exist
                 {
                     Directory.CreateDirectory(pathLog);

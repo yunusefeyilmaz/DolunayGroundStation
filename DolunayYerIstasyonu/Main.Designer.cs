@@ -1,4 +1,4 @@
-﻿namespace DolunayYerIstasyonu
+﻿namespace DolunayGroundStation
 {
     partial class Main
     {
@@ -50,7 +50,6 @@
             lblPresText = new Label();
             lblDisSen = new Label();
             lblCon = new Label();
-            label34 = new Label();
             progBarRight = new ProgressBar();
             progBarLeft = new ProgressBar();
             pbDisSubImage = new PictureBox();
@@ -88,6 +87,7 @@
             btnSettings = new Button();
             lblMode = new Label();
             lblArm = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDisSubImage).BeginInit();
@@ -106,7 +106,7 @@
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Image = Properties.Resources.motors;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(9, 8);
             pictureBox2.Margin = new Padding(0);
             pictureBox2.Name = "pictureBox2";
@@ -367,18 +367,6 @@
             lblCon.Text = "Connection Lost";
             lblCon.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // label34
-            // 
-            label34.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label34.AutoSize = true;
-            label34.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label34.ForeColor = Color.Black;
-            label34.Location = new Point(1058, 195);
-            label34.Name = "label34";
-            label34.Size = new Size(14, 24);
-            label34.TabIndex = 37;
-            label34.Text = "|";
-            // 
             // progBarRight
             // 
             progBarRight.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -408,7 +396,7 @@
             // pbDisSubImage
             // 
             pbDisSubImage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pbDisSubImage.Image = Properties.Resources.arac;
+            pbDisSubImage.Image = (Image)resources.GetObject("pbDisSubImage.Image");
             pbDisSubImage.Location = new Point(117, 40);
             pbDisSubImage.Name = "pbDisSubImage";
             pbDisSubImage.Size = new Size(177, 123);
@@ -421,7 +409,7 @@
             CameraUnder.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CameraUnder.BackColor = Color.LightGray;
             CameraUnder.BackgroundImageLayout = ImageLayout.Stretch;
-            CameraUnder.Image = Properties.Resources.signal;
+            CameraUnder.Image = (Image)resources.GetObject("CameraUnder.Image");
             CameraUnder.Location = new Point(838, 223);
             CameraUnder.Name = "CameraUnder";
             CameraUnder.Size = new Size(390, 226);
@@ -434,7 +422,7 @@
             pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Image = Properties.Resources.basınc;
+            pictureBox3.Image = Properties.Resources.pressure;
             pictureBox3.Location = new Point(3, 166);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(30, 28);
@@ -446,7 +434,7 @@
             // 
             pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.BackgroundImage = Properties.Resources.aracsensor;
+            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
             pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox4.Location = new Point(3, 4);
             pictureBox4.Name = "pictureBox4";
@@ -626,7 +614,7 @@
             // pbControllerImage
             // 
             pbControllerImage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pbControllerImage.BackgroundImage = Properties.Resources.gamedapcont;
+            pbControllerImage.BackgroundImage = (Image)resources.GetObject("pbControllerImage.BackgroundImage");
             pbControllerImage.BackgroundImageLayout = ImageLayout.Zoom;
             pbControllerImage.Location = new Point(3, 0);
             pbControllerImage.Name = "pbControllerImage";
@@ -639,7 +627,7 @@
             // 
             btnChangePanelMiddle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnChangePanelMiddle.BackColor = Color.LightGray;
-            btnChangePanelMiddle.BackgroundImage = Properties.Resources.change;
+            btnChangePanelMiddle.BackgroundImage = (Image)resources.GetObject("btnChangePanelMiddle.BackgroundImage");
             btnChangePanelMiddle.BackgroundImageLayout = ImageLayout.Stretch;
             btnChangePanelMiddle.FlatStyle = FlatStyle.Flat;
             btnChangePanelMiddle.ForeColor = Color.Black;
@@ -702,7 +690,7 @@
             // 
             btnLog.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnLog.BackColor = Color.LightGray;
-            btnLog.BackgroundImage = Properties.Resources.log;
+            btnLog.BackgroundImage = (Image)resources.GetObject("btnLog.BackgroundImage");
             btnLog.BackgroundImageLayout = ImageLayout.Stretch;
             btnLog.FlatAppearance.BorderSize = 0;
             btnLog.FlatStyle = FlatStyle.Flat;
@@ -717,7 +705,7 @@
             // 
             btnJoystick.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnJoystick.BackColor = Color.LightGray;
-            btnJoystick.BackgroundImage = Properties.Resources.gamepad;
+            btnJoystick.BackgroundImage = (Image)resources.GetObject("btnJoystick.BackgroundImage");
             btnJoystick.BackgroundImageLayout = ImageLayout.Zoom;
             btnJoystick.FlatAppearance.BorderSize = 0;
             btnJoystick.FlatStyle = FlatStyle.Flat;
@@ -733,7 +721,7 @@
             // 
             btnSSH.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnSSH.BackColor = Color.LightGray;
-            btnSSH.BackgroundImage = Properties.Resources.SSH;
+            btnSSH.BackgroundImage = (Image)resources.GetObject("btnSSH.BackgroundImage");
             btnSSH.BackgroundImageLayout = ImageLayout.Stretch;
             btnSSH.FlatAppearance.BorderSize = 0;
             btnSSH.FlatStyle = FlatStyle.Flat;
@@ -773,7 +761,7 @@
             CameraImg.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CameraImg.BackColor = Color.LightGray;
             CameraImg.BackgroundImageLayout = ImageLayout.Stretch;
-            CameraImg.Image = Properties.Resources.signal;
+            CameraImg.Image = (Image)resources.GetObject("CameraImg.Image");
             CameraImg.Location = new Point(12, 3);
             CameraImg.Margin = new Padding(12, 12, 3, 3);
             CameraImg.Name = "CameraImg";
@@ -841,7 +829,7 @@
             // 
             btnSettings.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnSettings.BackColor = Color.LightGray;
-            btnSettings.BackgroundImage = Properties.Resources.settings;
+            btnSettings.BackgroundImage = (Image)resources.GetObject("btnSettings.BackgroundImage");
             btnSettings.BackgroundImageLayout = ImageLayout.Stretch;
             btnSettings.FlatAppearance.BorderSize = 0;
             btnSettings.FlatStyle = FlatStyle.Flat;
@@ -865,6 +853,7 @@
             lblMode.Size = new Size(123, 23);
             lblMode.TabIndex = 35;
             lblMode.Text = "No Connection";
+            lblMode.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblArm
             // 
@@ -879,15 +868,28 @@
             lblArm.Text = "No Connection";
             lblArm.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(1058, 196);
+            label2.Name = "label2";
+            label2.Size = new Size(18, 23);
+            label2.TabIndex = 56;
+            label2.Text = " |";
+            // 
             // Main
             // 
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.Control;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1241, 724);
+            Controls.Add(label2);
             Controls.Add(lblHydrophone);
             Controls.Add(lbl3);
             Controls.Add(btnSettings);
@@ -900,7 +902,6 @@
             Controls.Add(lblDownPicBox);
             Controls.Add(panel1);
             Controls.Add(CameraUnder);
-            Controls.Add(label34);
             Controls.Add(lblArm);
             Controls.Add(lblMode);
             Controls.Add(lblCon);
@@ -925,7 +926,7 @@
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Tag = "";
-            Text = "DOLUNAY YER ISTASYONU";
+            Text = "Dolunay Ground Station";
             Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
@@ -965,7 +966,6 @@
         private Label lblPresText;
         private Label lblDisSen;
         private Label lblCon;
-        private Label label34;
         private ProgressBar progBarRight;
         private ProgressBar progBarLeft;
         private PictureBox pbDisSubImage;
@@ -1012,5 +1012,6 @@
         private PictureBox pbControllerImage;
         private Label lblMode;
         private Label lblArm;
+        private Label label2;
     }
 }

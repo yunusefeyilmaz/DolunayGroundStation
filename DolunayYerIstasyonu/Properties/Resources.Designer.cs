@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DolunayYerIstasyonu.Properties {
+namespace DolunayGroundStation.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DolunayYerIstasyonu.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DolunayYerIstasyonu.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DolunayGroundStation.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -83,16 +83,6 @@ namespace DolunayYerIstasyonu.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap basınc {
-            get {
-                object obj = ResourceManager.GetObject("basınc", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
         internal static System.Drawing.Bitmap change {
             get {
                 object obj = ResourceManager.GetObject("change", resourceCulture);
@@ -116,6 +106,16 @@ namespace DolunayYerIstasyonu.Properties {
         internal static System.Drawing.Bitmap gamedapcont {
             get {
                 object obj = ResourceManager.GetObject("gamedapcont", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap gamedapcontwhite {
+            get {
+                object obj = ResourceManager.GetObject("gamedapcontwhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +166,16 @@ namespace DolunayYerIstasyonu.Properties {
         internal static System.Drawing.Bitmap motors {
             get {
                 object obj = ResourceManager.GetObject("motors", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap pressure {
+            get {
+                object obj = ResourceManager.GetObject("pressure", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

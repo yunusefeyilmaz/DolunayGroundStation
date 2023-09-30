@@ -3,7 +3,7 @@ using SharpDX.XInput;
 
 
 
-namespace DolunayYerIstasyonu
+namespace DolunayGroundStation
 {
     internal class Joystick
     {

@@ -1,4 +1,4 @@
-﻿namespace DolunayYerIstasyonu
+﻿namespace DolunayGroundStation
 {
     public class LoggerConsole
     {
