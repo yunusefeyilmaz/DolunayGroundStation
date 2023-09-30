@@ -9,9 +9,9 @@ This application is built using .NET 6, with the purpose of enabling communicati
 ### HOW TO DOWNLOAD
 
 - The portable version works on any Windows device.
-- [Click here](https://github.com/yunusefeyilmaz/DolunayGroundStation/releases/download/v2.0.1/DolunayYerIstasyonu-portable.zip) to download the portable version. (Recommended)
-- To download the single-file Win64 version, [click here](https://github.com/yunusefeyilmaz/DolunayGroundStation/releases/download/v2.0.1/DolunayYerIstasyonu-win64bit.zip). ([Requires .NET Desktop RunTime.](https://dotnet.microsoft.com/en-us/download/dotnet/6.0))
-- To download the single-file Win32 version, [click here](https://github.com/yunusefeyilmaz/DolunayGroundStation/releases/download/v2.0.1/DolunayYerIstasyonu-win32bit.zip). ([Requires .NET Desktop RunTime.](https://dotnet.microsoft.com/en-us/download/dotnet/6.0))
+- [Click here](https://github.com/yunusefeyilmaz/DolunayGroundStation/releases/download/v2.1.0/DolunayGroundStation-portable.zip) to download the portable version. (Recommended)
+- To download the single-file Win64 version, [click here](https://github.com/yunusefeyilmaz/DolunayGroundStation/releases/download/v2.1.0/DolunayGroundStation-win64bit.zip). ([Requires .NET Desktop RunTime.](https://dotnet.microsoft.com/en-us/download/dotnet/6.0))
+- To download the single-file Win32 version, [click here](https://github.com/yunusefeyilmaz/DolunayGroundStation/releases/download/v2.1.0/DolunayGroundStation-win32bit.zip). ([Requires .NET Desktop RunTime.](https://dotnet.microsoft.com/en-us/download/dotnet/6.0))
 
 ### HOW IT WORKS
 
