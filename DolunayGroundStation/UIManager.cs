@@ -173,7 +173,7 @@ namespace DolunayGroundStation
                     main.GetLblMode().Text = pixhawkdata["mode"].ToString();
                     main.GetLblArm().Text = pixhawkdata["arm"].ToString();
 
-                    main.GetPbCompass().Image = Compass.DrawCompass(degYaw, degPitch, degRoll, main.GetPbCompass().Size);
+                    main.GetPbCompass().Image = Compass.DrawCompass(degYaw, -degPitch, degRoll, main.GetPbCompass().Size);
 
                 });
             }

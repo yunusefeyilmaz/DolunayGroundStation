@@ -888,7 +888,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.Control;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1241, 724);
+            ClientSize = new Size(1241, 727);
             Controls.Add(label2);
             Controls.Add(lblHydrophone);
             Controls.Add(lbl3);

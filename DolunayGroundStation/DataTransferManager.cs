@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -67,7 +68,7 @@ namespace DolunayGroundStation
                     console.Log("A device connected: " + clientIP);
                     while (isDataTransferRunning)
                     {
-                        byte[] buffer = new byte[300 * 420 * 3 * 2 + 2048];
+                        byte[] buffer = new byte[320 * 480 * 3 * 2+2048];
                         int bytesRead = stream.Read(buffer, 0, buffer.Length);
                         string jsonData = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                         // Process JSON data.
@@ -185,7 +186,6 @@ namespace DolunayGroundStation
                             byte[] responseBuffer = Encoding.ASCII.GetBytes(responseMessage);
                             stream.Write(responseBuffer, 0, responseBuffer.Length);
                         }
-
                         // Break the loop if the connection is lost.
                         if (!client.Connected)
                         {

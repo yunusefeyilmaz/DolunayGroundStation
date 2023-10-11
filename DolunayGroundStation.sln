@@ -5,6 +5,10 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DolunayGroundStation", "DolunayGroundStation\DolunayGroundStation.csproj", "{A950AEA0-A929-4FB7-9FD2-50635D848A86}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DolunayGroundStationApp", "DolunayGroundStationSetup\DolunayGroundStationSetup.vdproj", "{5D803AA0-42FC-432D-8AB3-C9228D6D2A9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{924F92BF-F5DA-46DE-9F22-A5A3ED6BD898}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +22,16 @@ Global
 		{A950AEA0-A929-4FB7-9FD2-50635D848A86}.Publsh|Any CPU.Build.0 = Debug|Any CPU
 		{A950AEA0-A929-4FB7-9FD2-50635D848A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A950AEA0-A929-4FB7-9FD2-50635D848A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D803AA0-42FC-432D-8AB3-C9228D6D2A9C}.Debug|Any CPU.ActiveCfg = Debug
+		{5D803AA0-42FC-432D-8AB3-C9228D6D2A9C}.Debug|Any CPU.Build.0 = Debug
+		{5D803AA0-42FC-432D-8AB3-C9228D6D2A9C}.Publsh|Any CPU.ActiveCfg = Debug
+		{5D803AA0-42FC-432D-8AB3-C9228D6D2A9C}.Release|Any CPU.ActiveCfg = Release
+		{924F92BF-F5DA-46DE-9F22-A5A3ED6BD898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924F92BF-F5DA-46DE-9F22-A5A3ED6BD898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924F92BF-F5DA-46DE-9F22-A5A3ED6BD898}.Publsh|Any CPU.ActiveCfg = Debug|Any CPU
+		{924F92BF-F5DA-46DE-9F22-A5A3ED6BD898}.Publsh|Any CPU.Build.0 = Debug|Any CPU
+		{924F92BF-F5DA-46DE-9F22-A5A3ED6BD898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924F92BF-F5DA-46DE-9F22-A5A3ED6BD898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

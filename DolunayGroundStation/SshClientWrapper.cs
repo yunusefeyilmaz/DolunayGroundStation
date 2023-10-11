@@ -1,5 +1,6 @@
 ﻿using Renci.SshNet;
 using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DolunayGroundStation
 {
@@ -42,8 +43,6 @@ namespace DolunayGroundStation
                 console.Log("Attempting emergency stop. Please wait.");
                 var pythonKillCommand = "sudo pkill python";
                 var pythonKillResponse = client.RunCommand(pythonKillCommand);
-                var rebootCommand = "sleep 3 && sudo reboot";
-                var rebootResponse = client.RunCommand(rebootCommand);
                 console.Log("Emergency stop executed successfully.");
             }
             catch (Exception ex)
@@ -62,31 +61,27 @@ namespace DolunayGroundStation
             try
             {
                 Connect();
-                ProcessStartInfo psi = new ProcessStartInfo
-                {
-                    FileName = "cmd.exe",
-                    RedirectStandardInput = true,
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = false
-                };
-                Process process = new Process { StartInfo = psi };
+                Process process = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = "cmd.exe";
+                startInfo.Arguments = $"/K ssh {SettingsForm.USERNAME}@{SettingsForm.HOST}";
+                startInfo.CreateNoWindow = false;
+                startInfo.UseShellExecute = true; // UseShellExecute'yi true o
+                startInfo.RedirectStandardInput = false; 
+                startInfo.RedirectStandardOutput = false; 
+                process.StartInfo = startInfo;
                 process.Start();
-                StreamWriter sw = process.StandardInput;
-                StreamReader sr = process.StandardOutput;
-
-                sw.WriteLine($"ssh -t {SettingsForm.USERNAME}@{SettingsForm.HOST}");
-                sw.WriteLine(SettingsForm.PASSWORD);
-                process.Close();
             }
             catch (Exception ex)
             {
                 console.Log("SSH console could not be created.");
+                console.Log("Error: " + ex.Message);
             }
             finally
             {
                 Disconnect();
             }
+
         }
 
     }
