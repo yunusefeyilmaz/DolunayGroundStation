@@ -18,7 +18,7 @@ namespace DolunayGroundStation
             // Initialize necessary components and forms.
             uiManager = new UIManager(this);
             console = new LoggerConsole(uiManager);
-            updater = new Updater(this,console);
+            updater = new Updater(this, console);
             // Initialize the Settings Form and read settings.
             settingsForm = new SettingsForm(this, console);
             dataTransferManager = new DataTransferManager(uiManager, console);

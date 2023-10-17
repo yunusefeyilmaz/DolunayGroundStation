@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -68,11 +67,22 @@ namespace DolunayGroundStation
                     console.Log("A device connected: " + clientIP);
                     while (isDataTransferRunning)
                     {
-                        byte[] buffer = new byte[320 * 480 * 3 * 2+2048];
+                        byte[] buffer = new byte[320 * 480 * 3 * 2 + 2048];
                         int bytesRead = stream.Read(buffer, 0, buffer.Length);
                         string jsonData = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                         // Process JSON data.
-                        Dictionary<string, object> data = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonData);
+                        Dictionary<string, object> data;
+                        try
+                        {
+                            data = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonData);
+                        }
+                        catch
+                        {
+                            receiveData(stream);
+                            Thread.Sleep(10);
+                            continue;
+                        }
+
                         // Confirm that data is not empty and the connection is established.
                         if (data == null) { isDataTransferRunning = false; }
                         if (!isDataTransferRunning)
@@ -171,21 +181,7 @@ namespace DolunayGroundStation
 
                         // Update the display labels.
                         uiManager.RefreshConnectionVerificationLabel();
-
-                        // Check if joystick control is enabled.
-                        if (Main.joystickOn && joystick.getControllerCon())
-                        {
-                            string joyData = joystick.GetJoystickData();
-                            byte[] joyBuffer = Encoding.ASCII.GetBytes(joyData);
-                            stream.Write(joyBuffer, 0, joyBuffer.Length);
-                        }
-                        else
-                        {
-                            // Notify the other side that the received data is processed.
-                            string responseMessage = "received";
-                            byte[] responseBuffer = Encoding.ASCII.GetBytes(responseMessage);
-                            stream.Write(responseBuffer, 0, responseBuffer.Length);
-                        }
+                        receiveData(stream);
                         // Break the loop if the connection is lost.
                         if (!client.Connected)
                         {
@@ -201,6 +197,23 @@ namespace DolunayGroundStation
             catch (Exception ex)
             {
                 console.Log("Error: " + ex.Message);
+            }
+        }
+        private void receiveData(NetworkStream stream)
+        {
+            // Check if joystick control is enabled.
+            if (Main.joystickOn && joystick.getControllerCon())
+            {
+                string joyData = joystick.GetJoystickData();
+                byte[] joyBuffer = Encoding.ASCII.GetBytes(joyData);
+                stream.Write(joyBuffer, 0, joyBuffer.Length);
+            }
+            else
+            {
+                // Notify the other side that the received data is processed.
+                string responseMessage = "received";
+                byte[] responseBuffer = Encoding.ASCII.GetBytes(responseMessage);
+                stream.Write(responseBuffer, 0, responseBuffer.Length);
             }
         }
     }

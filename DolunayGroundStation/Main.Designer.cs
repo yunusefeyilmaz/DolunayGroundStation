@@ -130,7 +130,7 @@
             panel3.Controls.Add(lblServo1);
             panel3.Controls.Add(pictureBox2);
             panel3.Location = new Point(838, 507);
-            panel3.Margin = new Padding(0);
+            panel3.Margin = new Padding(0, 0, 0, 12);
             panel3.Name = "panel3";
             panel3.Size = new Size(391, 205);
             panel3.TabIndex = 5;
@@ -446,6 +446,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoSize = true;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.LightGray;
             panel1.BackgroundImageLayout = ImageLayout.Center;
             panel1.Controls.Add(pictureBox4);
@@ -461,8 +462,9 @@
             panel1.Controls.Add(label1);
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(12, 507);
+            panel1.Margin = new Padding(3, 3, 3, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(402, 205);
+            panel1.Size = new Size(402, 204);
             panel1.TabIndex = 44;
             // 
             // pbCompass
@@ -596,6 +598,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.BackColor = Color.LightGray;
             panel2.Controls.Add(pbControllerImage);
             panel2.Controls.Add(btnChangePanelMiddle);
@@ -607,6 +610,7 @@
             panel2.Controls.Add(lblLeftDis);
             panel2.Controls.Add(pbDisSubImage);
             panel2.Location = new Point(420, 507);
+            panel2.Margin = new Padding(3, 3, 3, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(412, 205);
             panel2.TabIndex = 48;
@@ -618,7 +622,7 @@
             pbControllerImage.BackgroundImageLayout = ImageLayout.Zoom;
             pbControllerImage.Location = new Point(3, 0);
             pbControllerImage.Name = "pbControllerImage";
-            pbControllerImage.Size = new Size(409, 222);
+            pbControllerImage.Size = new Size(409, 232);
             pbControllerImage.TabIndex = 43;
             pbControllerImage.TabStop = false;
             pbControllerImage.Visible = false;
@@ -882,8 +886,7 @@
             // Main
             // 
             AllowDrop = true;
-            AutoScaleDimensions = new SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleMode = AutoScaleMode.None;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.Control;
