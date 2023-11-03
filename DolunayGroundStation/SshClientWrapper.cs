@@ -1,6 +1,5 @@
 ﻿using Renci.SshNet;
 using System.Diagnostics;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DolunayGroundStation
 {
@@ -35,6 +34,17 @@ namespace DolunayGroundStation
             client.Disconnect();
         }
 
+        public void sendIPAddressComputer()
+        {
+            try
+            {
+                var sshCommand = client.RunCommand($"sudo echo '{console.GetIPAdress()}' > ~/ipaddress.txt");
+            }
+            catch (Exception ex)
+            {
+                console.Log("Error: " + ex.Message);
+            }
+        }
         public void ExecuteEmergencyStop()
         {
             try
@@ -61,16 +71,18 @@ namespace DolunayGroundStation
             try
             {
                 Connect();
+                sendIPAddressComputer();
                 Process process = new Process();
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = "cmd.exe";
                 startInfo.Arguments = $"/K ssh {SettingsForm.USERNAME}@{SettingsForm.HOST}";
                 startInfo.CreateNoWindow = false;
-                startInfo.UseShellExecute = true; // UseShellExecute'yi true o
-                startInfo.RedirectStandardInput = false; 
-                startInfo.RedirectStandardOutput = false; 
+                startInfo.UseShellExecute = true; // UseShellExecute'yi true
+                startInfo.RedirectStandardInput = false;
+                startInfo.RedirectStandardOutput = false;
                 process.StartInfo = startInfo;
                 process.Start();
+
             }
             catch (Exception ex)
             {

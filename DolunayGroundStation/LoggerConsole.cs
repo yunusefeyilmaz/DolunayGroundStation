@@ -1,4 +1,8 @@
-﻿namespace DolunayGroundStation
+﻿using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+
+namespace DolunayGroundStation
 {
     public class LoggerConsole
     {
@@ -38,6 +42,39 @@
                 Log("Log file created.");
                 writer.Close();
             }
+        }
+        public IPAddress GetIPAdress()
+        {
+            try
+            {
+                NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+
+                foreach (NetworkInterface networkInterface in networkInterfaces)
+                {
+                    if (networkInterface.NetworkInterfaceType == NetworkInterfaceType.Ethernet &&
+                        networkInterface.OperationalStatus == OperationalStatus.Up)
+                    {
+                        IPInterfaceProperties ipProperties = networkInterface.GetIPProperties();
+                        UnicastIPAddressInformationCollection ipAddresses = ipProperties.UnicastAddresses;
+
+                        foreach (UnicastIPAddressInformation ipAddressInfo in ipAddresses)
+                        {
+                            // IPv4 
+                            if (ipAddressInfo.Address.AddressFamily == AddressFamily.InterNetwork)
+                            {
+                                IPAddress ipAddress = ipAddressInfo.Address;
+                                return ipAddress;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Log("Error: " + e.Message);
+                Log("Device Not Connected");
+            }
+            return null;
         }
 
     }

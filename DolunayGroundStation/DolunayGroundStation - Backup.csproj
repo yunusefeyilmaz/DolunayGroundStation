@@ -4,15 +4,14 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <UseWindowsForms>True</UseWindowsForms>
+    <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>False</UseWPF>
     <StartupObject>DolunayGroundStation.Program</StartupObject>
     <ApplicationIcon>icondolunay.ico</ApplicationIcon>
-    <FileVersion>2.1.2.0</FileVersion>
+    <FileVersion>2.1.1.0</FileVersion>
     <AssemblyVersion>2.1.2.0</AssemblyVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

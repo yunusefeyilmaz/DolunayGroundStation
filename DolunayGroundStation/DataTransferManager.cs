@@ -33,10 +33,10 @@ namespace DolunayGroundStation
                 dataTransferThread.IsBackground = true;
                 isDataTransferRunning = true;
                 dataTransferThread.Start();
+                    console.Log($"Server IP: {console.GetIPAdress()}");
                 console.Log("Server successfully started.");
             }
         }
-
         public void StopDataTransfer()
         {
             if (isDataTransferRunning)
@@ -211,7 +211,7 @@ namespace DolunayGroundStation
             else
             {
                 // Notify the other side that the received data is processed.
-                string responseMessage = "received";
+                string responseMessage = "(received)";
                 byte[] responseBuffer = Encoding.ASCII.GetBytes(responseMessage);
                 stream.Write(responseBuffer, 0, responseBuffer.Length);
             }
