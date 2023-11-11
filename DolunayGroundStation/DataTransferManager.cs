@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -114,6 +115,7 @@ namespace DolunayGroundStation
                         {
                             // Read and display distance sensor data from JSON format.
                             Dictionary<string, object> distancedata = JsonConvert.DeserializeObject<Dictionary<string, object>>(data[SettingsForm.DISTANCE].ToString());
+                            uiManager.SetDistanceDataToLabel(distancedata);
                             disCont = true;
                         }
                         catch (Exception ex)
@@ -131,6 +133,7 @@ namespace DolunayGroundStation
                         {
                             // Read and display hydrophone data from JSON format.
                             Dictionary<string, object> hydrophonedata = JsonConvert.DeserializeObject<Dictionary<string, object>>(data[SettingsForm.HYDROPHONE].ToString());
+                            uiManager.SetHydrophoneDataToLabel(hydrophonedata);
                             hydroCont = true;
                         }
                         catch (Exception ex)

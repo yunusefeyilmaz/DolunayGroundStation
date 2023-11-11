@@ -69,8 +69,12 @@
             lblDownPicBox = new Label();
             lblFrontPicBox = new Label();
             panel2 = new Panel();
-            pbControllerImage = new PictureBox();
             btnChangePanelMiddle = new Button();
+            pbControllerImage = new PictureBox();
+            lblRightHydro = new Label();
+            lblLeftHydro = new Label();
+            label4 = new Label();
+            label3 = new Label();
             lblprogBarRight = new Label();
             lblprogBarLeft = new Label();
             lblRightDis = new Label();
@@ -132,7 +136,7 @@
             panel3.Location = new Point(838, 507);
             panel3.Margin = new Padding(0, 0, 0, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(391, 205);
+            panel3.Size = new Size(391, 204);
             panel3.TabIndex = 5;
             // 
             // lblServo4
@@ -371,8 +375,7 @@
             // 
             progBarRight.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             progBarRight.ForeColor = Color.Black;
-            progBarRight.Location = new Point(278, 87);
-            progBarRight.Maximum = 20;
+            progBarRight.Location = new Point(277, 119);
             progBarRight.Name = "progBarRight";
             progBarRight.Size = new Size(44, 23);
             progBarRight.Step = 0;
@@ -383,9 +386,8 @@
             progBarLeft.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             progBarLeft.BackColor = Color.LightGray;
             progBarLeft.ForeColor = Color.Black;
-            progBarLeft.Location = new Point(92, 86);
+            progBarLeft.Location = new Point(91, 118);
             progBarLeft.MarqueeAnimationSpeed = 5000;
-            progBarLeft.Maximum = 20;
             progBarLeft.Name = "progBarLeft";
             progBarLeft.RightToLeft = RightToLeft.Yes;
             progBarLeft.RightToLeftLayout = true;
@@ -397,7 +399,7 @@
             // 
             pbDisSubImage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pbDisSubImage.Image = (Image)resources.GetObject("pbDisSubImage.Image");
-            pbDisSubImage.Location = new Point(117, 40);
+            pbDisSubImage.Location = new Point(116, 72);
             pbDisSubImage.Name = "pbDisSubImage";
             pbDisSubImage.Size = new Size(177, 123);
             pbDisSubImage.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -423,9 +425,9 @@
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox3.Image = Properties.Resources.pressure;
-            pictureBox3.Location = new Point(3, 166);
+            pictureBox3.Location = new Point(7, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(30, 28);
+            pictureBox3.Size = new Size(39, 32);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 43;
             pictureBox3.TabStop = false;
@@ -436,7 +438,7 @@
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
             pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox4.Location = new Point(3, 4);
+            pictureBox4.Location = new Point(3, 95);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(102, 106);
             pictureBox4.TabIndex = 35;
@@ -455,11 +457,8 @@
             panel1.Controls.Add(label23);
             panel1.Controls.Add(lblPitch);
             panel1.Controls.Add(label22);
-            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblYaw);
             panel1.Controls.Add(label24);
-            panel1.Controls.Add(lblPressure);
-            panel1.Controls.Add(label1);
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(12, 507);
             panel1.Margin = new Padding(3, 3, 3, 12);
@@ -483,7 +482,7 @@
             lblRoll.AutoSize = true;
             lblRoll.BackColor = Color.Transparent;
             lblRoll.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRoll.Location = new Point(152, 42);
+            lblRoll.Location = new Point(151, 177);
             lblRoll.Name = "lblRoll";
             lblRoll.Size = new Size(12, 16);
             lblRoll.TabIndex = 34;
@@ -495,7 +494,7 @@
             label23.AutoSize = true;
             label23.BackColor = Color.Transparent;
             label23.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label23.Location = new Point(110, 25);
+            label23.Location = new Point(109, 160);
             label23.Name = "label23";
             label23.Size = new Size(37, 16);
             label23.TabIndex = 26;
@@ -507,7 +506,7 @@
             lblPitch.AutoSize = true;
             lblPitch.BackColor = Color.Transparent;
             lblPitch.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPitch.Location = new Point(152, 26);
+            lblPitch.Location = new Point(151, 161);
             lblPitch.Name = "lblPitch";
             lblPitch.Size = new Size(12, 16);
             lblPitch.TabIndex = 33;
@@ -519,7 +518,7 @@
             label22.AutoSize = true;
             label22.BackColor = Color.Transparent;
             label22.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label22.Location = new Point(110, 8);
+            label22.Location = new Point(109, 143);
             label22.Name = "label22";
             label22.Size = new Size(33, 16);
             label22.TabIndex = 25;
@@ -531,7 +530,7 @@
             lblYaw.AutoSize = true;
             lblYaw.BackColor = Color.Transparent;
             lblYaw.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblYaw.Location = new Point(152, 11);
+            lblYaw.Location = new Point(151, 146);
             lblYaw.Name = "lblYaw";
             lblYaw.Size = new Size(12, 16);
             lblYaw.TabIndex = 32;
@@ -543,7 +542,7 @@
             label24.AutoSize = true;
             label24.BackColor = Color.Transparent;
             label24.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label24.Location = new Point(111, 41);
+            label24.Location = new Point(110, 176);
             label24.Name = "label24";
             label24.Size = new Size(32, 16);
             label24.TabIndex = 27;
@@ -554,7 +553,7 @@
             lblPressure.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblPressure.AutoSize = true;
             lblPressure.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPressure.Location = new Point(36, 173);
+            lblPressure.Location = new Point(43, 20);
             lblPressure.Name = "lblPressure";
             lblPressure.Size = new Size(24, 16);
             lblPressure.TabIndex = 40;
@@ -565,7 +564,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(3, 148);
+            label1.Location = new Point(43, 4);
             label1.Name = "label1";
             label1.Size = new Size(94, 16);
             label1.TabIndex = 1;
@@ -600,8 +599,15 @@
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.BackColor = Color.LightGray;
-            panel2.Controls.Add(pbControllerImage);
             panel2.Controls.Add(btnChangePanelMiddle);
+            panel2.Controls.Add(pbControllerImage);
+            panel2.Controls.Add(lblRightHydro);
+            panel2.Controls.Add(lblLeftHydro);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(pictureBox3);
+            panel2.Controls.Add(lblPressure);
             panel2.Controls.Add(progBarLeft);
             panel2.Controls.Add(lblprogBarRight);
             panel2.Controls.Add(lblprogBarLeft);
@@ -612,20 +618,8 @@
             panel2.Location = new Point(420, 507);
             panel2.Margin = new Padding(3, 3, 3, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(412, 205);
+            panel2.Size = new Size(412, 204);
             panel2.TabIndex = 48;
-            // 
-            // pbControllerImage
-            // 
-            pbControllerImage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pbControllerImage.BackgroundImage = (Image)resources.GetObject("pbControllerImage.BackgroundImage");
-            pbControllerImage.BackgroundImageLayout = ImageLayout.Zoom;
-            pbControllerImage.Location = new Point(3, 0);
-            pbControllerImage.Name = "pbControllerImage";
-            pbControllerImage.Size = new Size(409, 232);
-            pbControllerImage.TabIndex = 43;
-            pbControllerImage.TabStop = false;
-            pbControllerImage.Visible = false;
             // 
             // btnChangePanelMiddle
             // 
@@ -643,12 +637,72 @@
             btnChangePanelMiddle.Visible = false;
             btnChangePanelMiddle.Click += btnChangePanelMiddle_Click;
             // 
+            // pbControllerImage
+            // 
+            pbControllerImage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            pbControllerImage.BackgroundImage = (Image)resources.GetObject("pbControllerImage.BackgroundImage");
+            pbControllerImage.BackgroundImageLayout = ImageLayout.Zoom;
+            pbControllerImage.Location = new Point(3, 0);
+            pbControllerImage.Name = "pbControllerImage";
+            pbControllerImage.Size = new Size(409, 232);
+            pbControllerImage.TabIndex = 43;
+            pbControllerImage.TabStop = false;
+            pbControllerImage.Visible = false;
+            // 
+            // lblRightHydro
+            // 
+            lblRightHydro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblRightHydro.AutoSize = true;
+            lblRightHydro.BackColor = Color.Transparent;
+            lblRightHydro.Font = new Font("Arial Narrow", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRightHydro.Location = new Point(237, 57);
+            lblRightHydro.Name = "lblRightHydro";
+            lblRightHydro.Size = new Size(44, 16);
+            lblRightHydro.TabIndex = 47;
+            lblRightHydro.Text = "0.00 dB";
+            // 
+            // lblLeftHydro
+            // 
+            lblLeftHydro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblLeftHydro.AutoSize = true;
+            lblLeftHydro.BackColor = Color.Transparent;
+            lblLeftHydro.Font = new Font("Arial Narrow", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblLeftHydro.Location = new Point(137, 57);
+            lblLeftHydro.Name = "lblLeftHydro";
+            lblLeftHydro.Size = new Size(44, 16);
+            lblLeftHydro.TabIndex = 46;
+            lblLeftHydro.Text = "0.00 dB";
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(277, 49);
+            label4.Name = "label4";
+            label4.Size = new Size(79, 32);
+            label4.TabIndex = 45;
+            label4.Text = "Hydrophone  \r\n(Right)\r\n";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(59, 49);
+            label3.Name = "label3";
+            label3.Size = new Size(76, 32);
+            label3.TabIndex = 44;
+            label3.Text = "Hydrophone \n(Left)";
+            label3.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // lblprogBarRight
             // 
             lblprogBarRight.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblprogBarRight.AutoSize = true;
             lblprogBarRight.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblprogBarRight.Location = new Point(278, 113);
+            lblprogBarRight.Location = new Point(277, 145);
             lblprogBarRight.Name = "lblprogBarRight";
             lblprogBarRight.Size = new Size(100, 32);
             lblprogBarRight.TabIndex = 2;
@@ -660,7 +714,7 @@
             lblprogBarLeft.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblprogBarLeft.AutoSize = true;
             lblprogBarLeft.Font = new Font("Arial Narrow", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblprogBarLeft.Location = new Point(42, 112);
+            lblprogBarLeft.Location = new Point(41, 144);
             lblprogBarLeft.Name = "lblprogBarLeft";
             lblprogBarLeft.Size = new Size(97, 32);
             lblprogBarLeft.TabIndex = 3;
@@ -672,7 +726,7 @@
             lblRightDis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblRightDis.AutoSize = true;
             lblRightDis.Font = new Font("Arial Narrow", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRightDis.Location = new Point(280, 69);
+            lblRightDis.Location = new Point(321, 122);
             lblRightDis.Name = "lblRightDis";
             lblRightDis.Size = new Size(40, 16);
             lblRightDis.TabIndex = 30;
@@ -684,7 +738,7 @@
             lblLeftDis.AutoSize = true;
             lblLeftDis.BackColor = Color.Transparent;
             lblLeftDis.Font = new Font("Arial Narrow", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblLeftDis.Location = new Point(92, 68);
+            lblLeftDis.Location = new Point(51, 122);
             lblLeftDis.Name = "lblLeftDis";
             lblLeftDis.Size = new Size(40, 16);
             lblLeftDis.TabIndex = 31;
@@ -1016,5 +1070,9 @@
         private Label lblMode;
         private Label lblArm;
         private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label lblRightHydro;
+        private Label lblLeftHydro;
     }
 }

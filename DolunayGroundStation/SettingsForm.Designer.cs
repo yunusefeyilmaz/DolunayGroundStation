@@ -44,7 +44,7 @@
             button1 = new Button();
             label7 = new Label();
             txtBoxLog = new TextBox();
-            btnFileExpoler = new Button();
+            btnLogFileExplorer = new Button();
             label8 = new Label();
             lblDistanceName = new TextBox();
             lblHydrophoneName = new TextBox();
@@ -55,6 +55,15 @@
             trackTheme = new TrackBar();
             label12 = new Label();
             label13 = new Label();
+            btnSimulation = new Button();
+            btnStartCode = new Button();
+            btnStopCode = new Button();
+            btnEditCode = new Button();
+            btnUpdateSim = new Button();
+            lblAppVersion = new Label();
+            btnCodeFileExplorer = new Button();
+            txtCodePath = new TextBox();
+            label15 = new Label();
             ((System.ComponentModel.ISupportInitialize)trackTheme).BeginInit();
             SuspendLayout();
             // 
@@ -63,6 +72,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(12, 21);
+            label1.Margin = new Padding(3, 12, 3, 0);
             label1.Name = "label1";
             label1.Size = new Size(81, 20);
             label1.TabIndex = 0;
@@ -90,15 +100,16 @@
             // 
             // btnSave
             // 
-            btnSave.BackColor = Color.Lime;
+            btnSave.BackColor = Color.LawnGreen;
             btnSave.DialogResult = DialogResult.OK;
             btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.Location = new Point(202, 264);
+            btnSave.Location = new Point(198, 350);
+            btnSave.Margin = new Padding(3, 3, 3, 12);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(104, 33);
-            btnSave.TabIndex = 4;
+            btnSave.TabIndex = 28;
             btnSave.Text = "SAVE";
             btnSave.UseVisualStyleBackColor = false;
             // 
@@ -185,11 +196,11 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(312, 264);
+            button1.Location = new Point(308, 350);
             button1.Margin = new Padding(3, 3, 12, 12);
             button1.Name = "button1";
             button1.Size = new Size(104, 33);
-            button1.TabIndex = 14;
+            button1.TabIndex = 28;
             button1.Text = "CANCEL";
             button1.UseVisualStyleBackColor = false;
             // 
@@ -213,19 +224,19 @@
             txtBoxLog.TabIndex = 16;
             txtBoxLog.WordWrap = false;
             // 
-            // btnFileExpoler
+            // btnLogFileExplorer
             // 
-            btnFileExpoler.BackColor = Color.LightGray;
-            btnFileExpoler.BackgroundImage = Properties.Resources.file;
-            btnFileExpoler.BackgroundImageLayout = ImageLayout.Zoom;
-            btnFileExpoler.FlatStyle = FlatStyle.Popup;
-            btnFileExpoler.Location = new Point(381, 74);
-            btnFileExpoler.Margin = new Padding(3, 3, 12, 3);
-            btnFileExpoler.Name = "btnFileExpoler";
-            btnFileExpoler.Size = new Size(35, 25);
-            btnFileExpoler.TabIndex = 17;
-            btnFileExpoler.UseVisualStyleBackColor = false;
-            btnFileExpoler.Click += btnFileExpoler_Click;
+            btnLogFileExplorer.BackColor = Color.LightGray;
+            btnLogFileExplorer.BackgroundImage = Properties.Resources.file;
+            btnLogFileExplorer.BackgroundImageLayout = ImageLayout.Zoom;
+            btnLogFileExplorer.FlatStyle = FlatStyle.Popup;
+            btnLogFileExplorer.Location = new Point(381, 76);
+            btnLogFileExplorer.Margin = new Padding(3, 3, 12, 3);
+            btnLogFileExplorer.Name = "btnLogFileExplorer";
+            btnLogFileExplorer.Size = new Size(35, 23);
+            btnLogFileExplorer.TabIndex = 17;
+            btnLogFileExplorer.UseVisualStyleBackColor = false;
+            btnLogFileExplorer.Click += btnFileExpoler_Click;
             // 
             // label8
             // 
@@ -285,7 +296,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(12, 269);
+            label11.Location = new Point(11, 355);
             label11.Name = "label11";
             label11.Size = new Size(60, 20);
             label11.TabIndex = 24;
@@ -295,7 +306,7 @@
             // 
             trackTheme.AutoSize = false;
             trackTheme.LargeChange = 1;
-            trackTheme.Location = new Point(78, 262);
+            trackTheme.Location = new Point(74, 348);
             trackTheme.Maximum = 1;
             trackTheme.Name = "trackTheme";
             trackTheme.Size = new Size(83, 35);
@@ -306,7 +317,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(70, 244);
+            label12.Location = new Point(66, 330);
             label12.Name = "label12";
             label12.Size = new Size(41, 20);
             label12.TabIndex = 26;
@@ -316,11 +327,128 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(127, 244);
+            label13.Location = new Point(123, 330);
             label13.Name = "label13";
             label13.Size = new Size(37, 20);
             label13.TabIndex = 27;
             label13.Text = "Dark";
+            // 
+            // btnSimulation
+            // 
+            btnSimulation.BackColor = Color.LightGray;
+            btnSimulation.FlatAppearance.BorderSize = 0;
+            btnSimulation.FlatStyle = FlatStyle.Flat;
+            btnSimulation.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSimulation.Location = new Point(159, 251);
+            btnSimulation.Name = "btnSimulation";
+            btnSimulation.Size = new Size(191, 40);
+            btnSimulation.TabIndex = 28;
+            btnSimulation.Text = "DOWNLOAD SIMULATION";
+            btnSimulation.UseVisualStyleBackColor = false;
+            btnSimulation.Click += btnSimulation_Click;
+            // 
+            // btnStartCode
+            // 
+            btnStartCode.BackColor = Color.LightGray;
+            btnStartCode.FlatAppearance.BorderSize = 0;
+            btnStartCode.FlatStyle = FlatStyle.Flat;
+            btnStartCode.Font = new Font("Arial Narrow", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnStartCode.Location = new Point(12, 251);
+            btnStartCode.Name = "btnStartCode";
+            btnStartCode.Size = new Size(43, 40);
+            btnStartCode.TabIndex = 29;
+            btnStartCode.Text = "START CODE";
+            btnStartCode.UseVisualStyleBackColor = false;
+            btnStartCode.Click += btnStartCode_Click;
+            // 
+            // btnStopCode
+            // 
+            btnStopCode.BackColor = Color.LightGray;
+            btnStopCode.FlatAppearance.BorderSize = 0;
+            btnStopCode.FlatStyle = FlatStyle.Flat;
+            btnStopCode.Font = new Font("Arial Narrow", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnStopCode.Location = new Point(61, 251);
+            btnStopCode.Name = "btnStopCode";
+            btnStopCode.Size = new Size(43, 40);
+            btnStopCode.TabIndex = 30;
+            btnStopCode.Text = "STOP CODE";
+            btnStopCode.UseVisualStyleBackColor = false;
+            btnStopCode.Click += btnStopCode_Click;
+            // 
+            // btnEditCode
+            // 
+            btnEditCode.BackColor = Color.LightGray;
+            btnEditCode.FlatAppearance.BorderSize = 0;
+            btnEditCode.FlatStyle = FlatStyle.Flat;
+            btnEditCode.Font = new Font("Arial Narrow", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEditCode.Location = new Point(110, 251);
+            btnEditCode.Name = "btnEditCode";
+            btnEditCode.Size = new Size(43, 40);
+            btnEditCode.TabIndex = 31;
+            btnEditCode.Text = "EDIT CODE";
+            btnEditCode.UseVisualStyleBackColor = false;
+            btnEditCode.Click += btnEditCode_Click;
+            // 
+            // btnUpdateSim
+            // 
+            btnUpdateSim.BackColor = Color.LightGray;
+            btnUpdateSim.Enabled = false;
+            btnUpdateSim.FlatAppearance.BorderSize = 0;
+            btnUpdateSim.FlatStyle = FlatStyle.Flat;
+            btnUpdateSim.Font = new Font("Arial Narrow", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateSim.Location = new Point(356, 251);
+            btnUpdateSim.Name = "btnUpdateSim";
+            btnUpdateSim.Size = new Size(60, 40);
+            btnUpdateSim.TabIndex = 32;
+            btnUpdateSim.Text = "CHECK NEW VERSION";
+            btnUpdateSim.UseVisualStyleBackColor = false;
+            btnUpdateSim.Click += btnUpdateSim_Click;
+            // 
+            // lblAppVersion
+            // 
+            lblAppVersion.AutoSize = true;
+            lblAppVersion.Dock = DockStyle.Bottom;
+            lblAppVersion.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAppVersion.Location = new Point(0, 344);
+            lblAppVersion.Margin = new Padding(3, 10, 3, 3);
+            lblAppVersion.Name = "lblAppVersion";
+            lblAppVersion.Size = new Size(185, 20);
+            lblAppVersion.TabIndex = 33;
+            lblAppVersion.Text = "Dolunay Ground Station v2.1.3.0";
+            // 
+            // btnCodeFileExplorer
+            // 
+            btnCodeFileExplorer.BackColor = Color.LightGray;
+            btnCodeFileExplorer.BackgroundImage = Properties.Resources.file;
+            btnCodeFileExplorer.BackgroundImageLayout = ImageLayout.Zoom;
+            btnCodeFileExplorer.FlatStyle = FlatStyle.Popup;
+            btnCodeFileExplorer.Location = new Point(381, 297);
+            btnCodeFileExplorer.Margin = new Padding(3, 3, 12, 3);
+            btnCodeFileExplorer.Name = "btnCodeFileExplorer";
+            btnCodeFileExplorer.Size = new Size(35, 23);
+            btnCodeFileExplorer.TabIndex = 36;
+            btnCodeFileExplorer.UseVisualStyleBackColor = false;
+            btnCodeFileExplorer.Click += btnCodeFileExplorer_Click;
+            // 
+            // txtCodePath
+            // 
+            txtCodePath.Enabled = false;
+            txtCodePath.Location = new Point(127, 297);
+            txtCodePath.Name = "txtCodePath";
+            txtCodePath.ShortcutsEnabled = false;
+            txtCodePath.Size = new Size(251, 23);
+            txtCodePath.TabIndex = 35;
+            txtCodePath.WordWrap = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Location = new Point(12, 300);
+            label15.Name = "label15";
+            label15.Size = new Size(88, 20);
+            label15.TabIndex = 34;
+            label15.Text = "Codes Path : ";
             // 
             // SettingsForm
             // 
@@ -329,8 +457,17 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(423, 307);
+            ClientSize = new Size(380, 364);
             ControlBox = false;
+            Controls.Add(btnCodeFileExplorer);
+            Controls.Add(txtCodePath);
+            Controls.Add(label15);
+            Controls.Add(lblAppVersion);
+            Controls.Add(btnUpdateSim);
+            Controls.Add(btnEditCode);
+            Controls.Add(btnStopCode);
+            Controls.Add(btnStartCode);
+            Controls.Add(btnSimulation);
             Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(trackTheme);
@@ -341,7 +478,7 @@
             Controls.Add(label9);
             Controls.Add(lblDistanceName);
             Controls.Add(label8);
-            Controls.Add(btnFileExpoler);
+            Controls.Add(btnLogFileExplorer);
             Controls.Add(txtBoxLog);
             Controls.Add(label7);
             Controls.Add(button1);
@@ -388,7 +525,7 @@
         private Button button1;
         private Label label7;
         private TextBox txtBoxLog;
-        private Button btnFileExpoler;
+        private Button btnLogFileExplorer;
         private Label label8;
         private TextBox lblDistanceName;
         private TextBox lblHydrophoneName;
@@ -399,5 +536,14 @@
         private TrackBar trackTheme;
         private Label label12;
         private Label label13;
+        private Button btnSimulation;
+        private Button btnStartCode;
+        private Button btnStopCode;
+        private Button btnEditCode;
+        private Button btnUpdateSim;
+        private Label lblAppVersion;
+        private Button btnCodeFileExplorer;
+        private TextBox txtCodePath;
+        private Label label15;
     }
 }

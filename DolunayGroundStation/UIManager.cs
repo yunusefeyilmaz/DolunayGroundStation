@@ -25,6 +25,12 @@ namespace DolunayGroundStation
                 st.BackColor = Color.Black;
                 st.ForeColor = Color.White;
                 st.GetFileExpButton().BackColor = Color.Gray;
+                st.GetSimulationButton().BackColor = Color.Gray;
+                st.GetEditCodeButton().BackColor = Color.Gray;
+                st.GetStartCodeButton().BackColor = Color.Gray;
+                st.GetStopCodeButton().BackColor = Color.Gray;
+                st.GetUpdateSimButton().BackColor = Color.Gray;
+                st.GetCodeFileExpButton().BackColor = Color.Gray;
                 main.BackColor = Color.Black;
                 main.ForeColor = Color.White;
                 main.GetCameraFront().BackColor = Color.Gray;
@@ -48,6 +54,12 @@ namespace DolunayGroundStation
                 st.BackColor = Color.FromKnownColor(KnownColor.Control);
                 st.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
                 st.GetFileExpButton().BackColor = Color.LightGray;
+                st.GetSimulationButton().BackColor = Color.LightGray;
+                st.GetEditCodeButton().BackColor = Color.LightGray;
+                st.GetStartCodeButton().BackColor = Color.LightGray;
+                st.GetStopCodeButton().BackColor = Color.LightGray;
+                st.GetUpdateSimButton().BackColor = Color.LightGray;
+                st.GetCodeFileExpButton().BackColor = Color.LightGray;
                 main.BackColor = Color.FromKnownColor(KnownColor.Control);
                 main.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
                 main.GetCameraFront().BackColor = Color.LightGray;
@@ -179,6 +191,53 @@ namespace DolunayGroundStation
             }
 
         }
+        public void SetDistanceDataToLabel(Dictionary<string, object> distancedata)
+        {
+            /* 
+              *** DATA FORMAT ***
+             "distance": {
+             "distance_left": 3.12 ,
+             "distance_right": 3.12,
+             "distance_front":  3.2
+             }
+              */
+            if (main.InvokeRequired)
+            {
+                main.Invoke((MethodInvoker)delegate
+                {
+                    double distance_left = double.Parse(distancedata["distance_left"].ToString());
+                    double distance_right = double.Parse(distancedata["distance_right"].ToString());
+                    main.GetProgBarLeft().Value = Convert.ToInt16((double)distance_left);   
+                    main.GetProgBarRight().Value = Convert.ToInt16((double)distance_right);
+                    main.GetLblLeftDis().Text = distance_left.ToString("0.###");
+                    main.GetLblRightDis().Text = distance_right.ToString("0.###");
+                });
+            }
+
+        }
+        public void SetHydrophoneDataToLabel(Dictionary<string, object> hydrophonedata)
+        {
+            /* 
+              *** DATA FORMAT ***
+             "hydrophone": {
+             "hydrophone_left": 3.12 ,
+             "hydrophone_right": 3.12,
+             "hydrophone_frequency":  3.2
+             }
+              */
+            if (main.InvokeRequired)
+            {
+                main.Invoke((MethodInvoker)delegate
+                {
+                    double hydrophone_left = double.Parse(hydrophonedata["hydrophone_left"].ToString());
+                    double hydrophone_right = double.Parse(hydrophonedata["hydrophone_right"].ToString());
+                    main.GetLblLeftHydro().Text = hydrophone_left.ToString("0.###");
+                    main.GetLblRightHydro().Text = hydrophone_right.ToString("0.###");
+                });
+            }
+
+        }
+
         public void RefreshConnectionVerificationLabel()
         {
             main.Invoke((MethodInvoker)delegate

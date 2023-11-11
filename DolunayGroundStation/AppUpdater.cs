@@ -4,11 +4,11 @@ using System.Reflection;
 
 namespace DolunayGroundStation
 {
-    public class Updater
+    public class AppUpdater
     {
         Main main;
         LoggerConsole console;
-        public Updater(Main main, LoggerConsole console)
+        public AppUpdater(Main main, LoggerConsole console)
         {
             this.main = main;
             this.console = console;
@@ -20,7 +20,8 @@ namespace DolunayGroundStation
                     if (MessageBox.Show("New version available. Do you want to download?",
                         "Update"
                         , MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question) == DialogResult.Yes) using (var client = new WebClient())
+                        MessageBoxIcon.Question) == DialogResult.Yes) 
+                        using (var client = new WebClient())
                         {
                             Process.Start("Updater.exe");
                             main.Close();

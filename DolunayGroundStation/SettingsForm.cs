@@ -1,4 +1,7 @@
-﻿namespace DolunayGroundStation
+﻿using System.Diagnostics;
+using System.Reflection;
+
+namespace DolunayGroundStation
 {
     public partial class SettingsForm : Form
     {
@@ -9,14 +12,17 @@
         public static string UNDERCAMNAME = "";
         public static string PIXHAWKNAME = "";
         public static string PATHLOG = "";
+        public static string CODESPATH = "";
         public static string DISTANCE = "";
         public static string HYDROPHONE = "";
         public static int PORT = 65432;
         public static bool THEME = true;
-        private string dosyaAdi = "config.txt";
+        private string configPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\DolunayGroundStation\\" + "config.txt";
+        public static string VERSIONSIM = "";
         private Main main;
         private LoggerConsole console;
         private bool notValidData = false;
+        SimController simController;
         public SettingsForm()
         {
 
@@ -24,17 +30,52 @@
         public SettingsForm(Main main, LoggerConsole console)
         {
 
-            this.console = console;
+
             InitializeComponent();
+
+            this.console = console;
             this.main = main;
             WriteFileSetting();
             UpdateSettingsInApp();
+            //Simulation
+            simController = new SimController();
+            checkSimButton();
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
         {
+            UpdateVersionLabel();
             RefreshSettingLabel();
             lblPort.KeyPress += new KeyPressEventHandler(lblPort_KeyPress);
+
+        }
+        public Button GetFileExpButton()
+        {
+            return btnLogFileExplorer;
+        }
+        public Button GetSimulationButton()
+        {
+            return btnSimulation;
+        }
+        public Button GetStartCodeButton()
+        {
+            return btnStartCode;
+        }
+        public Button GetStopCodeButton()
+        {
+            return btnStopCode;
+        }
+        public Button GetEditCodeButton()
+        {
+            return btnEditCode;
+        }
+        public Button GetUpdateSimButton()
+        {
+            return btnUpdateSim;
+        }
+        public Button GetCodeFileExpButton()
+        {
+            return btnCodeFileExplorer;
         }
         private void lblPort_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -44,9 +85,25 @@
                 e.Handled = true; // Bu karakteri engelle
             }
         }
-        public Button GetFileExpButton()
+
+        public void checkSimButton()
         {
-            return btnFileExpoler;
+            if (simController.checkSimFolder())
+            {
+                btnSimulation.Text = "START SIMULATION";
+                btnUpdateSim.Enabled = true;
+                btnStartCode.Enabled = true;
+                btnStopCode.Enabled = true;
+                btnEditCode.Enabled = true;
+            }
+            else
+            {
+                btnSimulation.Text = "DOWNLOAD SIMULATION";
+                btnUpdateSim.Enabled = false;
+                btnStartCode.Enabled = false;
+                btnStopCode.Enabled = false;
+                btnEditCode.Enabled = false;
+            }
         }
         private void RefreshSettingLabel()
         {
@@ -64,6 +121,7 @@
                 lblHydrophoneName.Text = configValues["HydrophoneName"];
                 lblPort.Text = configValues["Port"];
                 trackTheme.Value = (configValues["Theme"] == "true") ? 1 : 0;
+                txtCodePath.Text = configValues["CodesPath"];
             }
             catch (Exception ex)
             {
@@ -75,7 +133,7 @@
         private Dictionary<string, string> ReadFromFileSetting()
         {
             Dictionary<string, string> configValues = new Dictionary<string, string>();
-            string[] lines = File.ReadAllLines(PATHLOG + "\\" + dosyaAdi);
+            string[] lines = File.ReadAllLines(configPath);
 
             foreach (string line in lines)
             {
@@ -90,8 +148,12 @@
 
         private void WriteFileSetting(string ip = "raspberrypi", string username = "raspberrypi", string password = "123456",
             string fName = "cam1", string dName = "cam2", string pxName = "pixhawkdata", string pathLog = "", string disName = "distance",
-            string hydrName = "hydrophone", string port = "65432", string theme = "false")
+            string hydrName = "hydrophone", string port = "65432", string theme = "false", string versionSim = "null", string codesPath = "")
         {
+            if (VERSIONSIM != "null" || VERSIONSIM != "")
+            {
+                versionSim = VERSIONSIM;
+            }
             bool write = false;
             if (pathLog == "")
             {
@@ -99,14 +161,13 @@
                 if (!Directory.Exists(pathLog)) // Create the folder if it doesn't exist
                 {
                     Directory.CreateDirectory(pathLog);
-                    File.Create(pathLog + "\\" + dosyaAdi).Close();
                     write = true;
                 }
                 else
                 {
-                    if (!File.Exists(pathLog + "\\" + dosyaAdi))
+                    if (!File.Exists(configPath))
                     {
-                        File.Create(pathLog + "\\" + dosyaAdi).Close();
+                        File.Create(configPath).Close();
                         write = true;
                     }
                 }
@@ -116,17 +177,22 @@
             {
                 if (PATHLOG != pathLog)
                 {
-                    File.Create(pathLog + "\\" + dosyaAdi).Close();
                     PATHLOG = pathLog;
                 }
                 else
                 {
-                    if (!File.Exists(pathLog + "\\" + dosyaAdi))
+                    if (!File.Exists(configPath))
                     {
-                        File.Create(pathLog + "\\" + dosyaAdi).Close();
+                        File.Create(configPath).Close();
                     }
                 }
                 write = true;
+            }
+            if (codesPath == "")
+            {
+                string cpath = AppDomain.CurrentDomain.BaseDirectory + "\\Codes";
+                Directory.CreateDirectory(cpath);
+                codesPath = cpath;
             }
             if (write || notValidData)
             {
@@ -141,10 +207,12 @@
                 "DistanceName="+disName,
                 "HydrophoneName="+hydrName,
                 "LogPath="+pathLog,
-                "Theme="+theme
+                "Theme="+theme,
+                "VersionSim="+versionSim,
+                "CodesPath="+codesPath
                 };
                 // Write to the file
-                File.WriteAllLines(pathLog + "\\" + dosyaAdi, lines);
+                File.WriteAllLines(configPath, lines);
                 console.Log("Settings updated.");
                 notValidData = false;
             }
@@ -153,7 +221,7 @@
         private void WriteFileFromLabel()
         {
             WriteFileSetting(lblHostIP.Text, lblHostName.Text, lblHostPass.Text, lblFrontName.Text, lblDownName.Text, lblPixhawkName.Text,
-                txtBoxLog.Text, lblDistanceName.Text, lblHydrophoneName.Text, lblPort.Text, trackTheme.Value == 1 ? ("true") : ("false"));
+                txtBoxLog.Text, lblDistanceName.Text, lblHydrophoneName.Text, lblPort.Text, trackTheme.Value == 1 ? ("true") : ("false"), VERSIONSIM, txtCodePath.Text);
         }
 
         public void RefreshSettingData()
@@ -177,25 +245,85 @@
                 HYDROPHONE = configValues["HydrophoneName"];
                 PORT = int.Parse(configValues["Port"]);
                 THEME = bool.Parse(configValues["Theme"]);
+                VERSIONSIM = configValues["VersionSim"];
+                CODESPATH = configValues["CodesPath"];
             }
             catch (Exception ex)
             {
+                notValidData = true;
                 WriteFileSetting();
                 console.Log("Error: " + ex.Message);
-                notValidData = true;
             }
 
         }
 
+        private void UpdateVersionLabel()
+        {
+            lblAppVersion.Text = "Dolunay Ground Station v" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
         private void btnFileExpoler_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
-            folderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyDocuments;
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                txtBoxLog.Text = folderBrowserDialog1.SelectedPath;
+                FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+                folderBrowserDialog1.RootFolder = Environment.SpecialFolder.MyDocuments;
+                folderBrowserDialog1.SelectedPath = Environment.SpecialFolder.MyDocuments.ToString();
+                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    txtBoxLog.Text = folderBrowserDialog1.SelectedPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
+        private void btnSimulation_Click(object sender, EventArgs e)
+        {
+
+            simController.StartSim();
+            RefreshSettingData();
+            checkSimButton();
+        }
+
+        private void btnUpdateSim_Click(object sender, EventArgs e)
+        {
+            simController.UpdateSim();
+            RefreshSettingData();
+        }
+
+        private void btnCodeFileExplorer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+                folderBrowserDialog1.SelectedPath = CODESPATH;
+                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    txtCodePath.Text = folderBrowserDialog1.SelectedPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void btnStartCode_Click(object sender, EventArgs e)
+        {
+            simController.StartSimCode();
+        }
+
+        private void btnStopCode_Click(object sender, EventArgs e)
+        {
+            simController.StopSimCode();
+        }
+
+        private void btnEditCode_Click(object sender, EventArgs e)
+        {
+            simController.EditSimCode();
+        }
+        
     }
 }
