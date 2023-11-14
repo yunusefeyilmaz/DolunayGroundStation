@@ -25,6 +25,30 @@ namespace DolunayGroundStation
             sshClient = new SshClientWrapper(SettingsForm.HOST, SettingsForm.USERNAME, SettingsForm.PASSWORD, console);
             //Check theme
             uiManager.changeTheme(settingsForm);
+            float scalingFactor = GetScalingFactor();
+            AdjustControlSizesAndFonts(this, scalingFactor);
+        }
+        private float GetScalingFactor()
+        {
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+            Graphics g = this.CreateGraphics();
+            float dpiFactor = g.DpiX / 96f; // 96 DPI varsayýlan deðerdir.
+            g.Dispose();
+            return dpiFactor;
+        }
+
+        private void AdjustControlSizesAndFonts(Control control, float scalingFactor)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                ctrl.Font = new Font(ctrl.Font.FontFamily, ctrl.Font.Size * scalingFactor);
+                ctrl.Size = new Size((int)(ctrl.Size.Width * scalingFactor), (int)(ctrl.Size.Height * scalingFactor));
+
+                if (ctrl.HasChildren)
+                {
+                    AdjustControlSizesAndFonts(ctrl, scalingFactor);
+                }
+            }
         }
         public Panel GetPanel1() { return panel1; }
         public Panel GetPanel2() { return panel2; }

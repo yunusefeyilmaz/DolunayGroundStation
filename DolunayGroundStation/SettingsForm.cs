@@ -47,7 +47,30 @@ namespace DolunayGroundStation
             UpdateVersionLabel();
             RefreshSettingLabel();
             lblPort.KeyPress += new KeyPressEventHandler(lblPort_KeyPress);
+            float scalingFactor = GetScalingFactor();
+            AdjustControlSizesAndFonts(this, scalingFactor);
+        }
+        private float GetScalingFactor()
+        {
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+            Graphics g = this.CreateGraphics();
+            float dpiFactor = g.DpiX / 96f; // 96 DPI varsayılan değerdir.
+            g.Dispose();
+            return dpiFactor;
+        }
 
+        private void AdjustControlSizesAndFonts(Control control, float scalingFactor)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                ctrl.Font = new Font(ctrl.Font.FontFamily, ctrl.Font.Size * scalingFactor);
+                ctrl.Size = new Size((int)(ctrl.Size.Width * scalingFactor), (int)(ctrl.Size.Height * scalingFactor));
+
+                if (ctrl.HasChildren)
+                {
+                    AdjustControlSizesAndFonts(ctrl, scalingFactor);
+                }
+            }
         }
         public Button GetFileExpButton()
         {

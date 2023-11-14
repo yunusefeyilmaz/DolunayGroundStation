@@ -409,7 +409,7 @@
             lblAppVersion.AutoSize = true;
             lblAppVersion.Dock = DockStyle.Bottom;
             lblAppVersion.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblAppVersion.Location = new Point(0, 383);
+            lblAppVersion.Location = new Point(0, 378);
             lblAppVersion.Margin = new Padding(3, 10, 3, 3);
             lblAppVersion.Name = "lblAppVersion";
             lblAppVersion.Size = new Size(185, 20);
@@ -457,7 +457,7 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(421, 403);
+            ClientSize = new Size(416, 398);
             ControlBox = false;
             Controls.Add(btnCodeFileExplorer);
             Controls.Add(txtCodePath);
