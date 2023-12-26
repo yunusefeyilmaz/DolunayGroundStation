@@ -31,16 +31,23 @@ namespace DolunayGroundStation
                     {
                         string entryPath = Path.Combine(extractPath, entry.FullName);
 
-                        // İlgili dosya yolunu oluştururken, alt dizini ekleyin
-                        string entryDirectory = Path.GetDirectoryName(entryPath);
-                        if (!string.IsNullOrEmpty(entryDirectory) && !Directory.Exists(entryDirectory))
+                        if (entry.Length == 0) // It's a directory
                         {
-                            Directory.CreateDirectory(entryDirectory);
+                            if (!Directory.Exists(entryPath))
+                            {
+                                Directory.CreateDirectory(entryPath);
+                            }
                         }
+                        else // It's a file
+                        {
+                            string entryDirectory = Path.GetDirectoryName(entryPath);
+                            if (!string.IsNullOrEmpty(entryDirectory) && !Directory.Exists(entryDirectory))
+                            {
+                                Directory.CreateDirectory(entryDirectory);
+                            }
 
-                        // Dosyayı ayıklayın
-                        entry.ExtractToFile(entryPath, true); // Overwrite existing files
-
+                            entry.ExtractToFile(entryPath, true); // Overwrite existing files
+                        }
                     }
                 }
                 File.Delete(@".\DolunaySimulation.zip");
@@ -52,15 +59,23 @@ namespace DolunayGroundStation
                     {
                         string entryPath = Path.Combine(extractPath, entry.FullName);
 
-                        // İlgili dosya yolunu oluştururken, alt dizini ekleyin
-                        string entryDirectory = Path.GetDirectoryName(entryPath);
-                        if (!string.IsNullOrEmpty(entryDirectory) && !Directory.Exists(entryDirectory))
+                        if (entry.Length == 0) // It's a directory
                         {
-                            Directory.CreateDirectory(entryDirectory);
+                            if (!Directory.Exists(entryPath))
+                            {
+                                Directory.CreateDirectory(entryPath);
+                            }
                         }
+                        else // It's a file
+                        {
+                            string entryDirectory = Path.GetDirectoryName(entryPath);
+                            if (!string.IsNullOrEmpty(entryDirectory) && !Directory.Exists(entryDirectory))
+                            {
+                                Directory.CreateDirectory(entryDirectory);
+                            }
 
-                        // Dosyayı ayıklayın
-                        entry.ExtractToFile(entryPath, true); // Overwrite existing files
+                            entry.ExtractToFile(entryPath, true); // Overwrite existing files
+                        }
                     }
                 }
                 string versionSim = webClient.DownloadString("https://myspace.eu5.org/UpdateDolunaySim/updateversion.html");

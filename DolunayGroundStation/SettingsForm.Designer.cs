@@ -64,7 +64,15 @@
             btnCodeFileExplorer = new Button();
             txtCodePath = new TextBox();
             label15 = new Label();
+            pbGithubYunus = new PictureBox();
+            lblGithubYunus = new Label();
+            lblGithubEnfyna = new Label();
+            pbGithubEnfyna = new PictureBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)trackTheme).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbGithubYunus).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbGithubEnfyna).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -105,7 +113,7 @@
             btnSave.FlatAppearance.BorderSize = 0;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.Location = new Point(198, 350);
+            btnSave.Location = new Point(198, 379);
             btnSave.Margin = new Padding(3, 3, 3, 12);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(104, 33);
@@ -196,7 +204,7 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(308, 350);
+            button1.Location = new Point(312, 379);
             button1.Margin = new Padding(3, 3, 12, 12);
             button1.Name = "button1";
             button1.Size = new Size(104, 33);
@@ -296,7 +304,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(11, 355);
+            label11.Location = new Point(11, 384);
             label11.Name = "label11";
             label11.Size = new Size(60, 20);
             label11.TabIndex = 24;
@@ -306,7 +314,7 @@
             // 
             trackTheme.AutoSize = false;
             trackTheme.LargeChange = 1;
-            trackTheme.Location = new Point(74, 348);
+            trackTheme.Location = new Point(74, 377);
             trackTheme.Maximum = 1;
             trackTheme.Name = "trackTheme";
             trackTheme.Size = new Size(83, 35);
@@ -317,7 +325,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(66, 330);
+            label12.Location = new Point(66, 359);
             label12.Name = "label12";
             label12.Size = new Size(41, 20);
             label12.TabIndex = 26;
@@ -327,7 +335,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(123, 330);
+            label13.Location = new Point(123, 359);
             label13.Name = "label13";
             label13.Size = new Size(37, 20);
             label13.TabIndex = 27;
@@ -339,7 +347,7 @@
             btnSimulation.FlatAppearance.BorderSize = 0;
             btnSimulation.FlatStyle = FlatStyle.Flat;
             btnSimulation.Font = new Font("Arial Narrow", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSimulation.Location = new Point(159, 251);
+            btnSimulation.Location = new Point(149, 3);
             btnSimulation.Name = "btnSimulation";
             btnSimulation.Size = new Size(191, 40);
             btnSimulation.TabIndex = 28;
@@ -353,7 +361,7 @@
             btnStartCode.FlatAppearance.BorderSize = 0;
             btnStartCode.FlatStyle = FlatStyle.Flat;
             btnStartCode.Font = new Font("Arial Narrow", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnStartCode.Location = new Point(12, 251);
+            btnStartCode.Location = new Point(2, 3);
             btnStartCode.Name = "btnStartCode";
             btnStartCode.Size = new Size(43, 40);
             btnStartCode.TabIndex = 29;
@@ -367,7 +375,7 @@
             btnStopCode.FlatAppearance.BorderSize = 0;
             btnStopCode.FlatStyle = FlatStyle.Flat;
             btnStopCode.Font = new Font("Arial Narrow", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnStopCode.Location = new Point(61, 251);
+            btnStopCode.Location = new Point(51, 3);
             btnStopCode.Name = "btnStopCode";
             btnStopCode.Size = new Size(43, 40);
             btnStopCode.TabIndex = 30;
@@ -381,7 +389,7 @@
             btnEditCode.FlatAppearance.BorderSize = 0;
             btnEditCode.FlatStyle = FlatStyle.Flat;
             btnEditCode.Font = new Font("Arial Narrow", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnEditCode.Location = new Point(110, 251);
+            btnEditCode.Location = new Point(100, 3);
             btnEditCode.Name = "btnEditCode";
             btnEditCode.Size = new Size(43, 40);
             btnEditCode.TabIndex = 31;
@@ -396,7 +404,7 @@
             btnUpdateSim.FlatAppearance.BorderSize = 0;
             btnUpdateSim.FlatStyle = FlatStyle.Flat;
             btnUpdateSim.Font = new Font("Arial Narrow", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUpdateSim.Location = new Point(356, 251);
+            btnUpdateSim.Location = new Point(344, 3);
             btnUpdateSim.Name = "btnUpdateSim";
             btnUpdateSim.Size = new Size(60, 40);
             btnUpdateSim.TabIndex = 32;
@@ -409,7 +417,7 @@
             lblAppVersion.AutoSize = true;
             lblAppVersion.Dock = DockStyle.Bottom;
             lblAppVersion.Font = new Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblAppVersion.Location = new Point(0, 378);
+            lblAppVersion.Location = new Point(0, 424);
             lblAppVersion.Margin = new Padding(3, 10, 3, 3);
             lblAppVersion.Name = "lblAppVersion";
             lblAppVersion.Size = new Size(185, 20);
@@ -422,7 +430,7 @@
             btnCodeFileExplorer.BackgroundImage = Properties.Resources.file;
             btnCodeFileExplorer.BackgroundImageLayout = ImageLayout.Zoom;
             btnCodeFileExplorer.FlatStyle = FlatStyle.Popup;
-            btnCodeFileExplorer.Location = new Point(381, 297);
+            btnCodeFileExplorer.Location = new Point(381, 326);
             btnCodeFileExplorer.Margin = new Padding(3, 3, 12, 3);
             btnCodeFileExplorer.Name = "btnCodeFileExplorer";
             btnCodeFileExplorer.Size = new Size(35, 23);
@@ -433,7 +441,7 @@
             // txtCodePath
             // 
             txtCodePath.Enabled = false;
-            txtCodePath.Location = new Point(127, 297);
+            txtCodePath.Location = new Point(127, 326);
             txtCodePath.Name = "txtCodePath";
             txtCodePath.ShortcutsEnabled = false;
             txtCodePath.Size = new Size(251, 23);
@@ -444,11 +452,70 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(12, 300);
+            label15.Location = new Point(12, 329);
             label15.Name = "label15";
             label15.Size = new Size(88, 20);
             label15.TabIndex = 34;
             label15.Text = "Codes Path : ";
+            // 
+            // pbGithubYunus
+            // 
+            pbGithubYunus.BackColor = Color.Transparent;
+            pbGithubYunus.Image = Properties.Resources.github_mark;
+            pbGithubYunus.Location = new Point(301, 417);
+            pbGithubYunus.Name = "pbGithubYunus";
+            pbGithubYunus.Size = new Size(25, 25);
+            pbGithubYunus.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbGithubYunus.TabIndex = 37;
+            pbGithubYunus.TabStop = false;
+            pbGithubYunus.Click += pbGithubYunus_Click;
+            // 
+            // lblGithubYunus
+            // 
+            lblGithubYunus.AutoSize = true;
+            lblGithubYunus.Location = new Point(327, 422);
+            lblGithubYunus.Name = "lblGithubYunus";
+            lblGithubYunus.Size = new Size(89, 15);
+            lblGithubYunus.TabIndex = 38;
+            lblGithubYunus.Text = "yunusefeyilmaz";
+            lblGithubYunus.Click += lblGithubYunus_Click;
+            // 
+            // lblGithubEnfyna
+            // 
+            lblGithubEnfyna.AutoSize = true;
+            lblGithubEnfyna.Location = new Point(357, 50);
+            lblGithubEnfyna.Name = "lblGithubEnfyna";
+            lblGithubEnfyna.Size = new Size(43, 15);
+            lblGithubEnfyna.TabIndex = 40;
+            lblGithubEnfyna.Text = "enfyna";
+            lblGithubEnfyna.Click += lblGithubEnfyna_Click;
+            // 
+            // pbGithubEnfyna
+            // 
+            pbGithubEnfyna.BackColor = Color.Transparent;
+            pbGithubEnfyna.Image = Properties.Resources.github_mark;
+            pbGithubEnfyna.Location = new Point(331, 45);
+            pbGithubEnfyna.Name = "pbGithubEnfyna";
+            pbGithubEnfyna.Size = new Size(25, 25);
+            pbGithubEnfyna.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbGithubEnfyna.TabIndex = 39;
+            pbGithubEnfyna.TabStop = false;
+            pbGithubEnfyna.Click += pbGithubEnfyna_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.DarkGray;
+            panel1.Controls.Add(btnEditCode);
+            panel1.Controls.Add(lblGithubEnfyna);
+            panel1.Controls.Add(btnSimulation);
+            panel1.Controls.Add(pbGithubEnfyna);
+            panel1.Controls.Add(btnStartCode);
+            panel1.Controls.Add(btnStopCode);
+            panel1.Controls.Add(btnUpdateSim);
+            panel1.Location = new Point(11, 247);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(407, 73);
+            panel1.TabIndex = 41;
             // 
             // SettingsForm
             // 
@@ -457,17 +524,15 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(416, 398);
+            ClientSize = new Size(405, 444);
             ControlBox = false;
+            Controls.Add(panel1);
+            Controls.Add(lblGithubYunus);
+            Controls.Add(pbGithubYunus);
             Controls.Add(btnCodeFileExplorer);
             Controls.Add(txtCodePath);
             Controls.Add(label15);
             Controls.Add(lblAppVersion);
-            Controls.Add(btnUpdateSim);
-            Controls.Add(btnEditCode);
-            Controls.Add(btnStopCode);
-            Controls.Add(btnStartCode);
-            Controls.Add(btnSimulation);
             Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(trackTheme);
@@ -503,6 +568,10 @@
             Text = "Ayarlar";
             Load += SettingsForm_Load;
             ((System.ComponentModel.ISupportInitialize)trackTheme).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbGithubYunus).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbGithubEnfyna).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -545,5 +614,10 @@
         private Button btnCodeFileExplorer;
         private TextBox txtCodePath;
         private Label label15;
+        private PictureBox pbGithubYunus;
+        private Label lblGithubYunus;
+        private Label lblGithubEnfyna;
+        private PictureBox pbGithubEnfyna;
+        private Panel panel1;
     }
 }

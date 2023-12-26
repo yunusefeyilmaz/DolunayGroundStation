@@ -14,7 +14,7 @@ namespace DolunayGroundStation
         {
             updater = new SimulationUpdater();
         }
-        private string SimMainName = "TestExample.py";
+        private string SimMainName = "example_main.py";
         public void StartSim()
         {
             if (checkSimFolder())

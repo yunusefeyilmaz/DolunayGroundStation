@@ -22,7 +22,7 @@ namespace DolunayGroundStation.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DolunayGroundStation.Properties {
         ///   Bu sınıf tarafından kullanılan, önbelleğe alınmış ResourceManager örneğini döndürür.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DolunayGroundStation.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace DolunayGroundStation.Properties {
         ///   CurrentUICulture özelliğini tüm kaynak aramaları için geçersiz kılar.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap arac {
+        internal static System.Drawing.Bitmap arac {
             get {
                 object obj = ResourceManager.GetObject("arac", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap aracsensor {
+        internal static System.Drawing.Bitmap aracsensor {
             get {
                 object obj = ResourceManager.GetObject("aracsensor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap change {
+        internal static System.Drawing.Bitmap change {
             get {
                 object obj = ResourceManager.GetObject("change", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap file {
+        internal static System.Drawing.Bitmap file {
             get {
                 object obj = ResourceManager.GetObject("file", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap gamedapcont {
+        internal static System.Drawing.Bitmap gamedapcont {
             get {
                 object obj = ResourceManager.GetObject("gamedapcont", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap gamedapcontwhite {
+        internal static System.Drawing.Bitmap gamedapcontwhite {
             get {
                 object obj = ResourceManager.GetObject("gamedapcontwhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap gamepad {
+        internal static System.Drawing.Bitmap gamepad {
             get {
                 object obj = ResourceManager.GetObject("gamepad", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,27 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap Horizon_GroundSky {
+        internal static System.Drawing.Bitmap github_mark {
+            get {
+                object obj = ResourceManager.GetObject("github-mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap github_mark_white {
+            get {
+                object obj = ResourceManager.GetObject("github-mark-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap Horizon_GroundSky {
             get {
                 object obj = ResourceManager.GetObject("Horizon_GroundSky", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +163,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap log {
+        internal static System.Drawing.Bitmap log {
             get {
                 object obj = ResourceManager.GetObject("log", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +173,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap motorcfg {
+        internal static System.Drawing.Bitmap motorcfg {
             get {
                 object obj = ResourceManager.GetObject("motorcfg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +183,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap motors {
+        internal static System.Drawing.Bitmap motors {
             get {
                 object obj = ResourceManager.GetObject("motors", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +193,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap pressure {
+        internal static System.Drawing.Bitmap pressure {
             get {
                 object obj = ResourceManager.GetObject("pressure", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +203,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap settings {
+        internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +213,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap signal {
+        internal static System.Drawing.Bitmap signal {
             get {
                 object obj = ResourceManager.GetObject("signal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +223,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        public static System.Drawing.Bitmap SSH {
+        internal static System.Drawing.Bitmap SSH {
             get {
                 object obj = ResourceManager.GetObject("SSH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +233,7 @@ namespace DolunayGroundStation.Properties {
         /// <summary>
         ///   1.0.0 benzeri yerelleştirilmiş bir dize arar.
         /// </summary>
-        public static string VersionSim {
+        internal static string VersionSim {
             get {
                 return ResourceManager.GetString("VersionSim", resourceCulture);
             }

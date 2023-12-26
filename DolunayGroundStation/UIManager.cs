@@ -8,6 +8,8 @@ namespace DolunayGroundStation
         private Image signalResource = Properties.Resources.signal;
         private Image whiteCont = Properties.Resources.gamedapcontwhite;
         private Image blackCont = Properties.Resources.gamedapcont;
+        private Image whiteGithub = Properties.Resources.github_mark_white;
+        private Image blackGithub = Properties.Resources.github_mark;
         public static bool conCheckBtn = false;
         public static bool conCheck = false;
         public static bool presCheck = false;
@@ -31,6 +33,8 @@ namespace DolunayGroundStation
                 st.GetStopCodeButton().BackColor = Color.Gray;
                 st.GetUpdateSimButton().BackColor = Color.Gray;
                 st.GetCodeFileExpButton().BackColor = Color.Gray;
+                st.GetPictureBoxGithubEnfyna().Image = whiteGithub;
+                st.GetPictureBoxGithubYunus().Image = whiteGithub;
                 main.BackColor = Color.Black;
                 main.ForeColor = Color.White;
                 main.GetCameraFront().BackColor = Color.Gray;
@@ -48,6 +52,7 @@ namespace DolunayGroundStation
                 main.GetPanel2().BackColor = Color.Gray;
                 main.GetPanel3().BackColor = Color.Gray;
                 main.GetControllerImage().BackgroundImage = whiteCont;
+                
             }
             else
             {
@@ -60,6 +65,8 @@ namespace DolunayGroundStation
                 st.GetStopCodeButton().BackColor = Color.LightGray;
                 st.GetUpdateSimButton().BackColor = Color.LightGray;
                 st.GetCodeFileExpButton().BackColor = Color.LightGray;
+                st.GetPictureBoxGithubEnfyna().Image = blackGithub;
+                st.GetPictureBoxGithubYunus().Image = blackGithub;
                 main.BackColor = Color.FromKnownColor(KnownColor.Control);
                 main.ForeColor = Color.FromKnownColor(KnownColor.ControlText);
                 main.GetCameraFront().BackColor = Color.LightGray;
@@ -140,7 +147,7 @@ namespace DolunayGroundStation
              "yaw": 3.12 ,
              "roll": 3.12,
              "pitch":    3.2,
-             "pressure":   10,
+             "pressure":   -10,
              "servo1": 1500,
              "servo2": 1500,
              "servo3": 1500,
@@ -170,7 +177,8 @@ namespace DolunayGroundStation
                     main.GetLblPitch().Text = pitch.ToString("0.###");
 
                     double pressure = double.Parse(pixhawkdata["pressure"].ToString());
-                    main.GetLblPressure().Text = pressure.ToString("0.###") + " M";
+                    pressure = pressure / 100.0;
+                    main.GetLblPressure().Text = pressure.ToString("0.##") + " M";
                     presCheck = (pressure != 0);
 
                     List<Label> servos = new List<Label>() { main.GetLblServo1(), main.GetLblServo2(), main.GetLblServo3(), main.GetLblServo4(),

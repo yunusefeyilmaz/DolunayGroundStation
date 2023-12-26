@@ -23,6 +23,8 @@ namespace DolunayGroundStation
         private LoggerConsole console;
         private bool notValidData = false;
         SimController simController;
+        private string githubLinkEnfyna = "https://github.com/enfyna/dolunay_sim";
+        private string githubLinkYunus = "https://github.com/yunusefeyilmaz/dolunay-ground-station";
         public SettingsForm()
         {
 
@@ -99,6 +101,14 @@ namespace DolunayGroundStation
         public Button GetCodeFileExpButton()
         {
             return btnCodeFileExplorer;
+        }
+        public PictureBox GetPictureBoxGithubEnfyna()
+        {
+            return pbGithubEnfyna;
+        }
+        public PictureBox GetPictureBoxGithubYunus()
+        {
+            return pbGithubYunus;
         }
         private void lblPort_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -346,6 +356,70 @@ namespace DolunayGroundStation
         private void btnEditCode_Click(object sender, EventArgs e)
         {
             simController.EditSimCode();
+        }
+
+        private void lblGithubEnfyna_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new ProcessStartInfo
+                {
+                    FileName = githubLinkEnfyna,
+                    UseShellExecute = true
+                });
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                console.Log(ex.Message);
+            }
+        }
+
+        private void pbGithubEnfyna_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new ProcessStartInfo
+                {
+                    FileName = githubLinkEnfyna,
+                    UseShellExecute = true
+                });
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                console.Log(ex.Message);
+            }
+        }
+
+        private void lblGithubYunus_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new ProcessStartInfo
+                {
+                    FileName = githubLinkYunus,
+                    UseShellExecute = true
+                });
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                console.Log(ex.Message);
+            }
+        }
+
+        private void pbGithubYunus_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new ProcessStartInfo
+                {
+                    FileName = githubLinkYunus,
+                    UseShellExecute = true
+                });
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                console.Log(ex.Message);
+            }
         }
 
     }
