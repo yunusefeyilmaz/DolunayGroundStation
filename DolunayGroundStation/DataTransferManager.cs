@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -31,10 +32,11 @@ namespace DolunayGroundStation
             {
                 listener.Start();
                 dataTransferThread = new Thread(DataTransferThread);
+                dataTransferThread.Priority = ThreadPriority.Highest;
                 dataTransferThread.IsBackground = true;
                 isDataTransferRunning = true;
                 dataTransferThread.Start();
-                    console.Log($"Server IP: {console.GetIPAdress()}");
+                console.Log($"Server IP: {console.GetIPAdress()}");
                 console.Log("Server successfully started.");
             }
         }
@@ -68,30 +70,37 @@ namespace DolunayGroundStation
                     console.Log("A device connected: " + clientIP);
                     while (isDataTransferRunning)
                     {
-                        byte[] buffer = new byte[320 * 480 * 3 * 2 + 2048];
-                        int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                        string jsonData = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                        //Reset
+                        byte[] received_data = null;
+                        byte[] bufferL = null;
+                        //Get Length of Data
+                        bufferL = new byte[16];
+                        int bytesReadL = stream.Read(bufferL, 0, bufferL.Length);
+                        //Send Received
+                        string responseMessage = "(received)";
+                        byte[] responseBuffer = Encoding.ASCII.GetBytes(responseMessage);
+                        stream.Write(responseBuffer, 0, responseBuffer.Length);
+                        // Convert the bytes received into an integer to get the length of the data
+                        int length = BitConverter.ToInt32(bufferL, 0);
+                        //Get Data
+                        received_data = new byte[length];
+                        var recv = stream.Read(received_data, 0, length);
+                        //Convert Byte to String 
+                        string jsonData = Encoding.ASCII.GetString(received_data, 0, received_data.Length);
                         // Process JSON data.
                         Dictionary<string, object> data;
                         try
                         {
                             data = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonData);
+                            
                         }
                         catch
                         {
+                            //IF Not Received continue
                             receiveData(stream);
                             Thread.Sleep(10);
                             continue;
                         }
-
-                        // Confirm that data is not empty and the connection is established.
-                        if (data == null) { isDataTransferRunning = false; }
-                        if (!isDataTransferRunning)
-                        {
-                            return;
-                        }
-                        isDataTransferRunning = true;
-
                         // Check for Pixhawk data.
                         try
                         {
@@ -191,7 +200,7 @@ namespace DolunayGroundStation
                             console.Log("Connection terminated.");
                             break;
                         }
-                        Thread.Sleep(10);
+                        stream.Flush();
                     }
                     stream.Close();
                     client.Close();
