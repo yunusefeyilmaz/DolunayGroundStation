@@ -9,8 +9,8 @@
     <UseWPF>False</UseWPF>
     <StartupObject>DolunayGroundStation.Program</StartupObject>
     <ApplicationIcon>icondolunay.ico</ApplicationIcon>
-    <FileVersion>2.2.2.0</FileVersion>
-    <AssemblyVersion>2.2.2.0</AssemblyVersion>
+    <FileVersion>2.2.3.0</FileVersion>
+    <AssemblyVersion>2.2.3.0</AssemblyVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
